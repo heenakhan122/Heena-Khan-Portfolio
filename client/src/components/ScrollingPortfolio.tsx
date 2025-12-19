@@ -611,15 +611,15 @@ function AboutSection({ scrollToSection }: { scrollToSection?: (index: number) =
       <div className="grid md:grid-cols-2 gap-12 items-start">
         <div className="space-y-6">
           <p className="text-terminal-gray text-lg leading-relaxed">
-            I'm a Stanford Computer Science student specializing in AI who's passionate about building software that actually solves problems for real people. My experience spans full-stack development: from a Chrome extension that uses computer vision to help users filter clothing searches, to a bilingual mental wellness app that works offline, to geospatial tools for healthcare planning.
+            I'm a Stanford Computer Science student (AI track) with a Biology minor, focused on building reliable software at the intersection of health and technology. I care about products that feel human: privacy-respecting, accessible by default, and designed for real-world constraints (limited bandwidth, older devices, and multilingual users).
           </p>
           
           <p className="text-terminal-gray text-lg leading-relaxed">
-            At Neurotrack, I worked with large datasets of cognitive health records, building data pipelines that help with early Alzheimer's detection. At Pull for Progress, I created interactive visualizations and mapping tools for healthcare resource allocation. Through Stanford's programs, I've built e-commerce platforms for Afghan women entrepreneurs and produced educational content about global health initiatives.
+            Across internships and research-adjacent work, I've built data pipelines for cognitive health assessments, shipped offline-first web apps, and developed geospatial tools to support healthcare resource allocation. I'm especially interested in neurotech/biotech teams where I can contribute as a SWE (or SWE-adjacent) while learning how real clinical and research workflows work end-to-end.
           </p>
 
           <p className="text-terminal-gray text-lg leading-relaxed">
-            I'm drawn to inclusive design, privacy-focused solutions, and building for real-world constraints—whether that means optimizing for slower networks, older devices, or users who speak multiple languages. When I'm not coding, I work as a barista and help organize community events at Stanford's Markaz, which keeps me grounded in what people actually need from technology.
+            When I'm not coding, I'm usually doing community-building work at Stanford's Markaz and mentoring students through leadership programming. That balance—shipping software and staying close to people—keeps my engineering grounded.
           </p>
 
           <div className="space-y-4">
@@ -629,11 +629,11 @@ function AboutSection({ scrollToSection }: { scrollToSection?: (index: number) =
             </div>
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 bg-terminal-green rounded-full"></div>
-              <span className="text-terminal-white">Expected Graduation: Dec 2026</span>
+              <span className="text-terminal-white">Expected Graduation: Dec 2027 (BS) · Planned CS Coterm: 2028</span>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 bg-terminal-green rounded-full"></div>
-              <span className="text-terminal-white">Coursework: Programming Abstractions, Data Structures & Algorithms, Artificial Intelligence, Human-Computer Interaction</span>
+              <span className="text-terminal-white">Coursework: Systems, Algorithms, AI/ML, Probability, HCI</span>
             </div>
           </div>
         </div>
@@ -767,22 +767,22 @@ function WorkSection({ scrollToSection }: { scrollToSection?: (index: number) =>
       company: 'Neurotrack Technologies',
       period: 'June–August 2025',
       location: 'Palo Alto, CA',
-      description: 'Built data processing infrastructure for cognitive health assessments used in Alzheimer\'s research. Developed Python and R pipelines to clean and analyze patient assessment data, working with datasets containing thousands of records.',
+      description: 'Built and maintained data processing infrastructure for cognitive health assessments used in research contexts. Developed Python/R workflows to clean, validate, and analyze assessment records; partnered with product + data stakeholders to ensure outputs were trustworthy and reproducible.',
       details: [
-        'Implemented SQL-based ETL workflows that improved data quality for machine learning models used in the company\'s digital cognitive assessments.'
+        'Implemented SQL-based ETL checks and QA dashboards to improve data quality for downstream analytics and model training.'
       ],
       tags: ['Python', 'R', 'SQL', 'pandas', 'healthcare data processing']
     },
     {
       year: '2024',
-      title: 'Design Fellow',
+      title: 'Data + Product Fellow',
       company: 'Pull for Progress',
       period: '2024–Present',
       location: 'Stanford, CA',
-      description: 'Create data-driven stories and tools for global health initiatives. Built an interactive geospatial application using Python and Folium that helps decision-makers visualize healthcare worker deployment strategies across different regions.',
+      description: 'Built data-driven tools and stories for global health initiatives. Developed an interactive geospatial application (Python + Folium) to visualize deployment strategies and communicate tradeoffs across regions.',
       details: [
-        'Developed web-based data visualizations with D3.js that increased engagement with partnership organizations.',
-        'Also produce short-form educational videos about healthcare projects in partnership with Stanford\'s Global Health Initiative.'
+        'Created web-based visualizations (including D3.js) to improve clarity for partner discussions and stakeholder updates.',
+        'Produced short-form educational content explaining public health projects for non-technical audiences.'
       ],
       tags: ['Python', 'pandas', 'Folium', 'D3.js', 'JavaScript', 'video production']
     },
@@ -792,10 +792,10 @@ function WorkSection({ scrollToSection }: { scrollToSection?: (index: number) =>
       company: 'Afghanistan Women\'s Council',
       period: '2023–2024',
       location: 'Remote',
-      description: 'Led frontend development for an e-commerce platform connecting Afghan women artisans with international customers. Built responsive React components optimized for low-bandwidth environments.',
+      description: 'Built an e-commerce frontend connecting Afghan women artisans with global customers. Shipped responsive React components and performance-minded UI patterns designed for low-bandwidth environments.',
       details: [
-        'Implemented accessibility features including keyboard navigation and screen reader support.',
-        'Collaborated on product strategy and feature prioritization with stakeholders across different time zones.'
+        'Implemented accessibility improvements (keyboard navigation, semantics, contrast) and polished UX details across key flows.',
+        'Collaborated across time zones on roadmap decisions, scope, and iteration based on user feedback.'
       ],
       tags: ['React', 'CSS Grid', 'responsive design', 'web accessibility standards']
     }
@@ -809,9 +809,7 @@ function WorkSection({ scrollToSection }: { scrollToSection?: (index: number) =>
 
       <div className="space-y-8">
         <p className="text-terminal-gray text-lg leading-relaxed max-w-4xl">
-          I have had the opportunity to work on diverse projects spanning data science, web development, 
-          and mobile applications. Each experience has taught me something valuable and I continuously 
-          improve in my learning journey.
+          SWE-adjacent experience across health data pipelines, global health tooling, and production UI work—focused on building things that are dependable, measurable, and usable by real people.
         </p>
 
         <div className="relative max-w-4xl">
@@ -889,6 +887,13 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
       tech: ['React', 'CSS Grid', 'Responsive Design', 'Accessibility', 'E-Commerce'],
       image: khaistaImage,
       route: '/projects/khaista-boutique'
+    },
+    {
+      title: 'AMANI',
+      description: 'Health + tech case study focused on privacy-minded, accessible UX for supportive workflows under real-world constraints.',
+      tech: ['TypeScript', 'React', 'privacy-by-design', 'offline-first', 'accessibility'],
+      image: 'https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1200&q=80',
+      route: '/projects/amani'
     }
   ];
 
@@ -1067,7 +1072,8 @@ function ContactSection({ scrollToSection }: { scrollToSection?: (index: number)
 function ResumeSection({ scrollToSection }: { scrollToSection?: (index: number) => void }) {
   const downloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/attached_assets/Heena Khan Resume (1)_1755311970265.pdf';
+    // Stored in /client/public so it works on GitHub Pages
+    link.href = '/Heena_Khan_Resume.pdf';
     link.download = 'Heena_Khan_Resume.pdf';
     document.body.appendChild(link);
     link.click();

@@ -8,6 +8,7 @@ import NotFound from "@/pages/not-found";
 import ModestFilterProject from "@/pages/modestfilter";
 import MobileMaristanProject from "@/pages/mobile-maristan";
 import KhaistaBoutiqueProject from "@/pages/khaista-boutique";
+import AmaniProject from "@/pages/amani";
 
 function Router() {
   return (
@@ -16,6 +17,7 @@ function Router() {
       <Route path="/projects/modestfilter" component={ModestFilterProject} />
       <Route path="/projects/mobile-maristan" component={MobileMaristanProject} />
       <Route path="/projects/khaista-boutique" component={KhaistaBoutiqueProject} />
+      <Route path="/projects/amani" component={AmaniProject} />
       <Route component={NotFound} />
     </Switch>
   );

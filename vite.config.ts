@@ -3,6 +3,9 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
+  // Needed for GitHub Pages project sites (https://<user>.github.io/<repo>/)
+  // Keeps assets + routing working when deployed under /Heena-Khan-Portfolio/
+  base: "/Heena-Khan-Portfolio/",
   plugins: [react()],
   resolve: {
     alias: {
