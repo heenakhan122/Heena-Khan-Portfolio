@@ -21,7 +21,7 @@ export const projects: Project[] = [
   {
     title: "Khaista Boutique",
     description: "Modern e-commerce frontend with product gallery, cart flow, and image optimization for Afghan handmade goods. Accessibility & performance tuned for global audiences.",
-    image: "/khaista-boutique-logo.jpg",
+    image: "/Heena-Khan-Portfolio/khaista-boutique-logo.jpg",
     technologies: ["React", "React Router", "Tailwind", "Stripe", "Vite", "Netlify"],
     category: "software",
     liveUrl: "#",

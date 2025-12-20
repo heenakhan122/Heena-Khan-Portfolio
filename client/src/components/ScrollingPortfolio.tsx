@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 // All images are in public folder for GitHub Pages deployment
-const headshotImage = "/heena-headshot.jpg";
-const modestFilterImage = "/modestfilter-preview.webp";
-const maristanImage = "/mobile-maristan-logo.svg";
-const khaistaImage = "/khaista-boutique-logo.jpg";
+const headshotImage = "/Heena-Khan-Portfolio/heena-headshot.jpg";
+const modestFilterImage = "/Heena-Khan-Portfolio/modestfilter-preview.webp";
+const maristanImage = "/Heena-Khan-Portfolio/mobile-maristan-logo.svg";
+const khaistaImage = "/Heena-Khan-Portfolio/khaista-boutique-logo.jpg";
 import { 
   SiPython, 
   SiTypescript, 
