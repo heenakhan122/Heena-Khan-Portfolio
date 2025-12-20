@@ -21,10 +21,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 var vite_config_default = defineConfig({
-  // Needed for GitHub Pages project sites (https://<user>.github.io/<repo>/)
-  // Keeps assets + routing working when deployed under /Heena-Khan-Portfolio/
-  base: "/Heena-Khan-Portfolio/",
   plugins: [react()],
+  base: "/Heena-Khan-Portfolio/",
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
