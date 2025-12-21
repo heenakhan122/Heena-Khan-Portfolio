@@ -51,7 +51,7 @@ export default function ModestFilterProject() {
           <div className="mb-12">
             <div className="rounded border border-terminal-green overflow-hidden">
               <img 
-                src="/Heena-Khan-Portfolio/modestfilter-preview.webp" 
+                src={`${import.meta.env.BASE_URL}modestfilter-preview.webp`} 
                 alt="ModestFilter Chrome Extension Interface"
                 className="w-full h-96 object-cover"
                 data-testid="img-project-preview"
@@ -106,7 +106,7 @@ export default function ModestFilterProject() {
               <div className="flex justify-center">
                 <div className="max-w-sm">
                   <img 
-                    src="/Heena-Khan-Portfolio/modestfilter-popup.png" 
+                    src={`${import.meta.env.BASE_URL}modestfilter-popup.png`} 
                     alt="ModestFilter Chrome extension popup interface showing filtering options including sleeves, dress length, neckline, and AI settings"
                     className="w-full h-auto rounded border border-terminal-green/50 shadow-lg"
                     data-testid="img-popup-interface"
@@ -127,7 +127,7 @@ export default function ModestFilterProject() {
               <div className="space-y-4">
                 <div className="rounded border border-terminal-green/50 overflow-hidden">
                   <img 
-                    src="/Heena-Khan-Portfolio/modestfilter-before.png" 
+                    src={`${import.meta.env.BASE_URL}modestfilter-before.png`} 
                     alt="Urban Outfitters product grid before applying ModestFilter - showing mix of modest and immodest clothing items"
                     className="w-full h-auto"
                     data-testid="img-before-filter"
@@ -141,7 +141,7 @@ export default function ModestFilterProject() {
               <div className="space-y-4">
                 <div className="rounded border border-terminal-green overflow-hidden">
                   <img 
-                    src="/Heena-Khan-Portfolio/modestfilter-after.png" 
+                    src={`${import.meta.env.BASE_URL}modestfilter-after.png`} 
                     alt="Urban Outfitters product grid after applying ModestFilter - showing only modest clothing options"
                     className="w-full h-auto"
                     data-testid="img-after-filter"
@@ -174,7 +174,7 @@ export default function ModestFilterProject() {
               <div className="space-y-4">
                 <div className="relative rounded border border-terminal-green/50 overflow-hidden">
                   <img 
-                    src="/Heena-Khan-Portfolio/modestfilter-hm-1.png" 
+                    src={`${import.meta.env.BASE_URL}modestfilter-hm-1.png`} 
                     alt="ModestFilter active on H&M website showing filtered modest clothing options"
                     className="w-full h-auto"
                     data-testid="img-hm-filtering-1"
@@ -196,7 +196,7 @@ export default function ModestFilterProject() {
               <div className="space-y-4">
                 <div className="relative rounded border border-terminal-green/50 overflow-hidden">
                   <img 
-                    src="/Heena-Khan-Portfolio/modestfilter-hm-2.png" 
+                    src={`${import.meta.env.BASE_URL}modestfilter-hm-2.png`} 
                     alt="ModestFilter active on H&M website with different product layout"
                     className="w-full h-auto"
                     data-testid="img-hm-filtering-2"
@@ -218,7 +218,7 @@ export default function ModestFilterProject() {
               <div className="space-y-4">
                 <div className="relative rounded border border-terminal-green/50 overflow-hidden">
                   <img 
-                    src="/Heena-Khan-Portfolio/modestfilter-shein.png" 
+                    src={`${import.meta.env.BASE_URL}modestfilter-shein.png`} 
                     alt="ModestFilter active on SHEIN website filtering clothing products"
                     className="w-full h-auto"
                     data-testid="img-shein-filtering"

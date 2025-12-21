@@ -8,22 +8,19 @@ const app = express();
 
 // Security headers and CSP
 app.use(helmet({
-  contentSecurityPolicy: {
+  contentSecurityPolicy: app.get("env") === "development" ? false : {
     useDefaults: true,
     directives: {
       defaultSrc: ["'self'"],
-      fontSrc: ["'self'", "https://fonts.gstatic.com"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com", "data:"],
       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-      imgSrc: ["'self'", "data:"],
-      scriptSrc: app.get("env") === "development" 
-        ? ["'self'", "'unsafe-inline'", "'unsafe-eval'"] 
-        : ["'self'"],
+      imgSrc: ["'self'", "data:", "https:"],
+      scriptSrc: ["'self'"],
       frameAncestors: ["'none'"],
     },
   },
   hsts: app.get("env") === "production" ? { maxAge: 31536000, includeSubDomains: true, preload: true } : false,
 }));
-
 // Rate limiting for API routes
 const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -82,8 +79,8 @@ app.use((req, res, next) => {
   const port = parseInt(process.env.PORT || '5173', 10);
   server.listen({
     port,
-    host: "0.0.0.0",
-    reusePort: true,
+    host: "127.0.0.1",
+    
   }, () => {
     log(`serving on port ${port}`);
   });

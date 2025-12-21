@@ -9,7 +9,16 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  {
+{
+  title: "AMANI",
+  description: "AI-enabled WASH hazard mapping platform for refugee and low-resource settings. Phone-based AR system with offline-first reporting, edge AI, and human-in-loop verification. Stanford Healthcare Design Challenge Finalist.",
+  image: `${import.meta.env.BASE_URL}amani-preview.png`,
+  technologies: ["Computer Vision", "Edge AI", "React Native", "Geospatial ML", "AR"],
+  category: "software",
+  liveUrl: "/Heena-Khan-Portfolio/projects/amani",
+  githubUrl: "https://github.com/heenakhan122"
+},  
+{
     title: "Mobile Maristan (PWA)",
     description: "TIIP-aligned wellness app with guided journaling + dhikr/breath practices, offline-first storage, i18n/RTL support, and explainable state→practice recommendations (sakina/waswasa/huzn/ghadab).",
     image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=200",
@@ -21,7 +30,7 @@ export const projects: Project[] = [
   {
     title: "Khaista Boutique",
     description: "Modern e-commerce frontend with product gallery, cart flow, and image optimization for Afghan handmade goods. Accessibility & performance tuned for global audiences.",
-    image: "/Heena-Khan-Portfolio/khaista-boutique-logo.jpg",
+    image: `${import.meta.env.BASE_URL}khaista-boutique-logo.jpg`,
     technologies: ["React", "React Router", "Tailwind", "Stripe", "Vite", "Netlify"],
     category: "software",
     liveUrl: "#",

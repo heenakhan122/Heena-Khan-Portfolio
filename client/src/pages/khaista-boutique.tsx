@@ -51,7 +51,7 @@ export default function KhaistaBoutiqueProject() {
           <div className="mb-12">
             <div className="rounded border border-terminal-green overflow-hidden">
               <img 
-                src="/Heena-Khan-Portfolio/khaista-boutique-logo.jpg" 
+                src={`${import.meta.env.BASE_URL}khaista-boutique-logo.jpg`} 
                 alt="Khaista Boutique E-Commerce Platform"
                 className="w-full h-96 object-contain bg-white"
                 data-testid="img-project-preview"
@@ -98,7 +98,7 @@ export default function KhaistaBoutiqueProject() {
                   {/* Website Content */}
                   <div className="bg-white rounded overflow-hidden shadow-inner">
                     <img 
-                      src="/Heena-Khan-Portfolio/khaista-homepage.png" 
+                      src={`${import.meta.env.BASE_URL}khaista-homepage.png`} 
                       alt="Khaista Boutique homepage showcasing Afghan artisan products"
                       className="w-full h-auto object-contain"
                       data-testid="img-homepage"
@@ -167,7 +167,7 @@ export default function KhaistaBoutiqueProject() {
                   {/* Website Content */}
                   <div className="bg-white rounded overflow-hidden shadow-inner">
                     <img 
-                      src="/Heena-Khan-Portfolio/khaista-catalog.png" 
+                      src={`${import.meta.env.BASE_URL}khaista-catalog.png`} 
                       alt="Product catalog with filtering and category navigation"
                       className="w-full h-auto object-contain"
                       data-testid="img-catalog"
@@ -246,7 +246,7 @@ export default function KhaistaBoutiqueProject() {
                   {/* Website Content */}
                   <div className="bg-white rounded overflow-hidden shadow-inner">
                     <img 
-                      src="/Heena-Khan-Portfolio/khaista-cart.png" 
+                      src={`${import.meta.env.BASE_URL}khaista-cart.png`} 
                       alt="Shopping cart interface with order summary and checkout"
                       className="w-full h-auto object-contain"
                       data-testid="img-cart"
@@ -295,7 +295,7 @@ export default function KhaistaBoutiqueProject() {
                   {/* Website Content */}
                   <div className="bg-white rounded overflow-hidden shadow-inner">
                     <img 
-                      src="/Heena-Khan-Portfolio/khaista-product-detail.png" 
+                      src={`${import.meta.env.BASE_URL}khaista-product-detail.png`} 
                       alt="Individual product page with detailed imagery and cultural context"
                       className="w-full h-auto object-contain"
                       data-testid="img-product-detail"
@@ -438,7 +438,7 @@ export default function KhaistaBoutiqueProject() {
                   {/* Website Content */}
                   <div className="bg-white rounded overflow-hidden shadow-inner">
                     <img 
-                      src="/Heena-Khan-Portfolio/khaista-order-confirmation.png" 
+                      src={`${import.meta.env.BASE_URL}khaista-order-confirmation.png`} 
                       alt="Order confirmation page showing social impact metrics"
                       className="w-full h-auto object-contain"
                       data-testid="img-order-confirmation"

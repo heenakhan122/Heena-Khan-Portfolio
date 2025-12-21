@@ -4,7 +4,7 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/Heena-Khan-Portfolio/",
+base: process.env.NODE_ENV === "production" ? "/Heena-Khan-Portfolio/" : "/",
 
   resolve: {
     alias: {

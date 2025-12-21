@@ -25,33 +25,34 @@ export default function AboutSection({ visible, onComplete }: AboutSectionProps)
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
               <p className="text-terminal-white leading-relaxed">
-                I'm Heena Khan, a Computer Science student at Stanford specializing in AI. I build data platforms, 
-                web apps, and AI tools with an eye for both performance and design.
+                I'm Heena Khan, a CS + Biology student at Stanford focused on computational neuroscience 
+                and healthcare AI. I build data systems that bridge biological complexity and clinical 
+                impact, from genomic analysis pipelines to cognitive assessment platforms.
               </p>
               
               <p className="text-terminal-white leading-relaxed">
-                My work spans from research-driven projects to polished, user-facing apps — always with the goal 
-                of turning ideas into things people can actually use. Outside of code, I keep my creativity flowing 
-                behind the espresso machine.
+                My toolkit spans Python data pipelines, R based bioinformatics workflows, and edge efficient 
+                AI models. Whether it's processing genomic datasets or building offline first health apps, 
+                I care about systems that work in the real world, not just in demos.
               </p>
 
               <div className="mt-6">
-                <h3 className="text-terminal-green font-semibold mb-2">## Current Focus</h3>
+                <h3 className="text-terminal-green font-semibold mb-2">## What I'm Building Toward</h3>
                 <ul className="space-y-1 text-terminal-white">
-                  <li>• AI and machine learning applications</li>
-                  <li>• Data visualization and statistical analysis</li>
-                  <li>• Web development with React and JavaScript</li>
-                  <li>• Computer vision and NLP projects</li>
+                  <li>• Brain computer interfaces & neural signal processing</li>
+                  <li>• Computational biology & genomic data platforms</li>
+                  <li>• Clinical grade AI for early disease detection</li>
+                  <li>• Healthcare tools that scale to resource constrained settings</li>
                 </ul>
               </div>
             </div>
             
             <div className="space-y-4">
               <div className="w-full max-w-sm rounded border border-terminal-gray bg-terminal-gray/20 p-8 text-center">
-                <div className="text-terminal-green text-6xl mb-4">👩‍💻</div>
+                <div className="text-terminal-green text-6xl mb-4">🧬</div>
                 <div className="text-terminal-white text-sm">
-                  Professional headshot<br/>
-                  would go here
+                  Where biology meets<br/>
+                  computation
                 </div>
               </div>
               
@@ -59,9 +60,9 @@ export default function AboutSection({ visible, onComplete }: AboutSectionProps)
                 <div className="text-terminal-green font-semibold mb-2">## Quick Stats</div>
                 <div className="space-y-1 text-sm">
                   <div><span className="text-terminal-green">University:</span> Stanford University</div>
-                  <div><span className="text-terminal-green">Major:</span> CS - Artificial Intelligence</div>
-                  <div><span className="text-terminal-green">Graduation:</span> Dec 2026/Mar 2027</div>
-                  <div><span className="text-terminal-green">Experience:</span> Multiple internships</div>
+                  <div><span className="text-terminal-green">Major:</span> CS (AI Track) + Biology Minor</div>
+                  <div><span className="text-terminal-green">Graduation:</span> Dec 2026</div>
+                  <div><span className="text-terminal-green">Focus:</span> Neurotech & Healthcare AI</div>
                 </div>
               </div>
             </div>

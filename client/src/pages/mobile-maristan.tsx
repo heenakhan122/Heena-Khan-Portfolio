@@ -57,7 +57,7 @@ export default function MobileMaristanProject() {
                     {/* Phone screen bezel */}
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-black rounded-b-2xl z-10"></div>
                     <img 
-                      src="/Heena-Khan-Portfolio/maristan-home.png" 
+                      src={`${import.meta.env.BASE_URL}maristan-home.png`} 
                       alt="Mobile Maristan home screen"
                       className="w-full h-full object-contain bg-gray-50"
                       data-testid="img-home-screen"
@@ -177,7 +177,7 @@ export default function MobileMaristanProject() {
                     <div className="w-full h-full bg-white rounded-[1.25rem] overflow-hidden relative">
                       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-3 bg-black rounded-b-lg z-10"></div>
                       <img 
-                        src="/Heena-Khan-Portfolio/maristan-quick-actions.png" 
+                        src={`${import.meta.env.BASE_URL}maristan-quick-actions.png`} 
                         alt="Quick spiritual practices menu"
                         className="w-full h-full object-contain bg-gray-50"
                         data-testid="img-quick-actions"
@@ -222,7 +222,7 @@ export default function MobileMaristanProject() {
                     <div className="w-full h-full bg-white rounded-[1.5rem] overflow-hidden relative">
                       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-4 bg-black rounded-b-xl z-10"></div>
                       <img 
-                        src="/Heena-Khan-Portfolio/maristan-tiip-framework.png" 
+                        src={`${import.meta.env.BASE_URL}maristan-tiip-framework.png`} 
                         alt="TIIP Framework stages with detailed descriptions"
                         className="w-full h-full object-contain bg-gray-50"
                         data-testid="img-tiip-framework"
@@ -295,7 +295,7 @@ export default function MobileMaristanProject() {
                     <div className="w-full h-full bg-white rounded-[1.5rem] overflow-hidden relative">
                       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-4 bg-black rounded-b-xl z-10"></div>
                       <img 
-                        src="/Heena-Khan-Portfolio/maristan-dashboard.png" 
+                        src={`${import.meta.env.BASE_URL}maristan-dashboard.png`} 
                         alt="Personal progress dashboard"
                         className="w-full h-full object-contain bg-gray-50 p-1"
                         data-testid="img-dashboard"
@@ -323,7 +323,7 @@ export default function MobileMaristanProject() {
                     <div className="w-full h-full bg-white rounded-[1.5rem] overflow-hidden relative">
                       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-4 bg-black rounded-b-xl z-10"></div>
                       <img 
-                        src="/Heena-Khan-Portfolio/maristan-mood-tracking.png" 
+                        src={`${import.meta.env.BASE_URL}maristan-mood-tracking.png`} 
                         alt="Cultural mood tracking interface"
                         className="w-full h-full object-contain bg-gray-50"
                         data-testid="img-mood-tracking"
@@ -354,7 +354,7 @@ export default function MobileMaristanProject() {
                     <div className="w-full h-full bg-white rounded-[1.5rem] overflow-hidden relative">
                       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-4 bg-black rounded-b-xl z-10"></div>
                       <img 
-                        src="/Heena-Khan-Portfolio/maristan-guidance.png" 
+                        src={`${import.meta.env.BASE_URL}maristan-guidance.png`} 
                         alt="Islamic guidance with Quranic verses"
                         className="w-full h-full object-contain bg-gray-50"
                         data-testid="img-guidance"
