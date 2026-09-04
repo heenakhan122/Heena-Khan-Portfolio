@@ -58,61 +58,6 @@ function useScrollReveal() {
   }, []);
 }
 
-// Theme Switcher Component
-function ThemeSwitcher() {
-  const [theme, setTheme] = useState('matrix');
-  
-  const themes = {
-    matrix: { primary: '#00ff41', secondary: '#00ffff' },
-    cyberpunk: { primary: '#ff0080', secondary: '#00ff80' },
-    retro: { primary: '#ffaa00', secondary: '#ff5500' },
-    neon: { primary: '#ff3366', secondary: '#66ff33' }
-  };
-
-  useEffect(() => {
-    const root = document.documentElement;
-    const currentTheme = themes[theme as keyof typeof themes];
-    root.style.setProperty('--terminal-green', currentTheme.primary);
-    root.style.setProperty('--accent-color', currentTheme.secondary);
-  }, [theme]);
-
-  return (
-    <div className="fixed top-20 right-8 z-50 bg-terminal-bg/90 backdrop-blur-sm border border-terminal-green/30 rounded-lg p-2">
-      <div className="flex flex-col gap-1.5">
-        <span className="text-terminal-green text-xs font-mono">THEME</span>
-        {Object.keys(themes).map((themeName) => (
-          <button
-            key={themeName}
-            onClick={() => setTheme(themeName)}
-            className={`w-6 h-6 rounded border-2 transition-all duration-300 ${
-              theme === themeName 
-                ? 'border-terminal-green scale-110' 
-                : 'border-terminal-green/30 hover:border-terminal-green/60'
-            }`}
-            style={{ 
-              background: `linear-gradient(45deg, ${themes[themeName as keyof typeof themes].primary}, ${themes[themeName as keyof typeof themes].secondary})` 
-            }}
-            data-testid={`theme-${themeName}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// Floating Geometric Shapes Component
-function ColorfulParticles() {
-  return (
-    <div className="fixed inset-0 pointer-events-none z-10 overflow-hidden">
-      <div className="floating-triangle floating-orb-1 w-8 h-8 top-1/4 left-1/4"></div>
-      <div className="floating-square floating-orb-2 w-6 h-6 top-1/3 right-1/3"></div>
-      <div className="floating-diamond floating-orb-3 w-10 h-10 bottom-1/4 left-1/2"></div>
-      <div className="floating-hexagon floating-orb-1 w-5 h-5 top-2/3 right-1/4"></div>
-      <div className="floating-triangle floating-orb-2 w-7 h-7 bottom-1/3 right-1/2"></div>
-      <div className="floating-square floating-orb-3 w-4 h-4 top-1/2 left-1/6"></div>
-    </div>
-  );
-}
 
 // Color Splash Effect Component  
 function ColorSplashEffect() {
@@ -336,14 +281,8 @@ export default function ScrollingPortfolio() {
       {/* Matrix Rain Background */}
       <MatrixRain />
       
-      {/* Colorful Floating Particles */}
-      <ColorfulParticles />
-      
       {/* Interactive Color Splash Effects */}
       <ColorSplashEffect />
-      
-      {/* Theme Switcher */}
-      <ThemeSwitcher />
       
       {/* Rainbow Progress Bar */}
       <div className="fixed top-0 left-0 right-0 z-[60] h-1">
@@ -469,15 +408,15 @@ function LandingSection({ scrollToSection }: { scrollToSection?: (index: number)
   const [titleVisible, setTitleVisible] = useState(false);
   
   const jobTitles = [
-    "CS Student",
-    "part time barista", 
-    "building for brain health",
-    "genomic data engineer",
-    "neurotech enthusiast",
-    "clinical AI developer"
+    "software engineer",
+    "CS (AI) @ Stanford",
+    "data infrastructure engineer",
+    "full stack developer",
+    "part time barista",
+    "AI systems builder"
   ];
-  
-  const fullText = 'heena@stanford:~$ whoami\n> Heena Khan\n\nheena@stanford:~$ mission\n> CS + Bio @ Stanford | Making healthcare tech that actually works\n\nheena@stanford:~$ focus\n> Genomic Data, Brain-Computer Interfaces, Clinical AI Systems\n\nheena@stanford:~$ extras\n> Fueled by espresso, part-time barista';
+
+  const fullText = 'heena@stanford:~$ whoami\n> Heena Khan\n\nheena@stanford:~$ mission\n> CS (AI) @ Stanford | Software engineer who ships real systems\n\nheena@stanford:~$ focus\n> Data Infrastructure, AI Agents, Full-Stack, Systems Programming\n\nheena@stanford:~$ extras\n> Fueled by espresso, part-time barista';
   
   useEffect(() => {
     let index = 0;
@@ -570,11 +509,12 @@ function LandingSection({ scrollToSection }: { scrollToSection?: (index: number)
             </span>
           </h2>
           <p className="text-terminal-gray text-lg md:text-xl max-w-2xl mb-8 leading-relaxed">
-I'm Heena Khan, building at the intersection of biology and AI at Stanford. 
-            I create data systems that bridge genomics, neuroscience, and clinical impact — 
-            from RNA sequencing analysis to Alzheimer's detection pipelines to offline health 
-            mapping tools. I thrive on projects that handle real-world constraints and create 
-            measurable health outcomes.          </p>
+            I'm Heena Khan, a software engineer and CS (AI) student at Stanford.
+            I build data pipelines, AI agents, and full-stack systems — strong in
+            systems programming, relational data modeling, and shipping production code.
+            I've worked across biotech, health tech, and global development, but the
+            engineering is the constant.
+          </p>
         
         <div className="flex flex-col sm:flex-row gap-4">
           <button 
@@ -611,49 +551,47 @@ function AboutSection({ scrollToSection }: { scrollToSection?: (index: number) =
       <div className="grid md:grid-cols-2 gap-12 items-start">
         <div className="space-y-6">
           <p className="text-terminal-gray text-lg leading-relaxed">
-            I'm Heena Khan, a CS + Biology student at Stanford focused on computational neuroscience 
-            and healthcare AI. I build data systems that bridge biological complexity and clinical 
-            impact, from genomic analysis pipelines to cognitive assessment platforms.
-          </p>
-          
-          <p className="text-terminal-gray text-lg leading-relaxed">
-            My background spans bioinformatics research analyzing glioma RNA sequencing data, software 
-            engineering at Neurotrack Technologies building Alzheimer's detection tools, and health 
-            tech design for global humanitarian applications. I'm drawn to problems where rigorous 
-            data engineering meets real world health outcomes.
+            I'm Heena Khan, a software engineer and CS (AI) student at Stanford with a Biology minor.
+            I build data pipelines, AI agents, and full-stack applications — strong CS fundamentals
+            from compilers to concurrency, with production experience at Roche/Genentech and Neurotrack.
           </p>
 
           <p className="text-terminal-gray text-lg leading-relaxed">
-            Whether it's processing genomic datasets or building offline first health apps, I care 
-            about systems that work in the real world, not just in demos. I thrive on projects that 
-            handle real constraints (low bandwidth, privacy requirements, resource limitations) and 
-            create measurable impact for patients.
+            At Roche I designed enterprise PostgreSQL databases, drift detection ETL pipelines, and
+            an AI agent for natural language querying of live assay data. At Neurotrack I built
+            high-throughput data curation pipelines and ML models over 10,000+ multimodal records.
+          </p>
+
+          <p className="text-terminal-gray text-lg leading-relaxed">
+            My edge: I can go deep on systems (OS, compilers, memory) and ship full-stack product.
+            The healthcare and biology work gives me domain breadth, but I'm competitive for any
+            SWE, data engineering, or AI role — not just health tech.
           </p>
 
           <div className="space-y-4">
-            <h3 className="text-terminal-green font-semibold text-lg mt-6 mb-3">Core Focus Areas</h3>
+            <h3 className="text-terminal-green font-semibold text-lg mt-6 mb-3">Core Strengths</h3>
             <div className="flex items-start gap-3">
               <div className="w-2 h-2 bg-terminal-green rounded-full mt-2"></div>
-              <span className="text-terminal-white">Brain computer interfaces & neural signal processing</span>
+              <span className="text-terminal-white">Data infrastructure — ETL pipelines, schema drift detection, relational modeling</span>
             </div>
             <div className="flex items-start gap-3">
               <div className="w-2 h-2 bg-terminal-green rounded-full mt-2"></div>
-              <span className="text-terminal-white">Computational biology & genomic data platforms</span>
+              <span className="text-terminal-white">AI systems — agents, NL-to-SQL, ML pipelines, model evaluation</span>
             </div>
             <div className="flex items-start gap-3">
               <div className="w-2 h-2 bg-terminal-green rounded-full mt-2"></div>
-              <span className="text-terminal-white">Healthcare AI systems with clinical deployment</span>
+              <span className="text-terminal-white">Full-stack engineering — Django, React, PostgreSQL, Docker, CI/CD</span>
             </div>
             <div className="flex items-start gap-3">
               <div className="w-2 h-2 bg-terminal-green rounded-full mt-2"></div>
-              <span className="text-terminal-white">Tools designed for real world constraints (offline capable, privacy preserving)</span>
+              <span className="text-terminal-white">Systems fundamentals — concurrency, memory management, compiler design, OS</span>
             </div>
           </div>
 
           <div className="mt-6 bg-terminal-green/10 border border-terminal-green p-4 rounded">
             <p className="text-terminal-white text-sm">
-              <strong className="text-terminal-green">Technical Toolkit:</strong> Python/R data engineering, 
-              bioinformatics workflows, edge efficient AI, clinical data pipelines
+              <strong className="text-terminal-green">Stack:</strong> Python, Java, C++, SQL, JavaScript/TypeScript,
+              PostgreSQL, MySQL, Django, React, Docker, Linux, Bash, Git
             </p>
           </div>
         </div>
@@ -669,8 +607,8 @@ function AboutSection({ scrollToSection }: { scrollToSection?: (index: number) =
             </div>
             <div className="text-center text-terminal-white mb-6">
               <div className="font-semibold">Heena Khan</div>
-              <div className="text-terminal-gray">Stanford CS + Biology</div>
-              <div className="text-terminal-green text-sm mt-2">Neurotech & Healthcare AI</div>
+              <div className="text-terminal-gray">Stanford CS (AI) + Biology</div>
+              <div className="text-terminal-green text-sm mt-2">Data Infrastructure & AI Systems</div>
             </div>
 
             <div className="bg-terminal-gray/20 p-4 rounded border border-terminal-gray">
@@ -685,7 +623,7 @@ function AboutSection({ scrollToSection }: { scrollToSection?: (index: number) =
                 </div>
                 <div className="flex justify-between">
                   <span className="text-terminal-gray">Graduation:</span>
-                  <span className="text-terminal-white">Dec 2026</span>
+                  <span className="text-terminal-white">June 2027</span>
                 </div>
               </div>
             </div>
@@ -736,24 +674,20 @@ function SkillsSection({ scrollToSection }: { scrollToSection?: (index: number) 
 
       const skillCategories = [
     {
-      category: 'Languages & Core Tools',
-      skills: ['Python', 'R', 'JavaScript', 'SQL', 'HTML/CSS', 'Git']
+      category: 'Languages',
+      skills: ['Python', 'Java', 'C++', 'SQL', 'JavaScript', 'TypeScript']
     },
     {
-      category: 'Data Analysis & Bioinformatics',
-      skills: ['Pandas', 'RNA-seq Analysis', 'Statistical Analysis', 'Data Visualization', 'ETL Workflows', 'Genomic Data Processing']
+      category: 'Systems & Tools',
+      skills: ['Linux', 'Git', 'Bash', 'PostgreSQL', 'MySQL', 'Docker', 'Django', 'React']
     },
     {
-      category: 'Web Development',
-      skills: ['React', 'Node.js', 'PostgreSQL', 'REST APIs', 'Responsive Design', 'Accessibility']
+      category: 'Concepts',
+      skills: ['Concurrency', 'Multithreading', 'Memory Management', 'Compiler Design', 'Relational Data Modeling', 'REST APIs']
     },
     {
-      category: 'Specialized Tools',
-      skills: ['D3.js', 'Folium', 'Figma', 'Chrome Extension APIs', 'OpenCV', 'Computer Vision']
-    },
-    {
-      category: 'Domains',
-      skills: ['Healthcare Data Systems', 'Offline-First Architecture', 'Clinical Data Pipelines', 'Low-Bandwidth Optimization']
+      category: 'Data & ML',
+      skills: ['ETL Pipelines', 'Schema Drift Detection', 'Statistical Modeling', 'Geospatial ML', 'Data Curation', 'AI Agents']
     }
   ];
 
@@ -765,8 +699,8 @@ function SkillsSection({ scrollToSection }: { scrollToSection?: (index: number) 
 
       <div className="space-y-12">
         <p className="text-terminal-gray text-lg leading-relaxed max-w-4xl">
-          Technical skills developed through bioinformatics research at Petritsch Lab, data engineering 
-          at Neurotrack, and building health-focused applications.
+          Technical skills developed through data infrastructure work at Roche, AI research engineering
+          at Neurotrack, and building full-stack applications for global health.
         </p>
 
         <div className="space-y-8">
@@ -795,9 +729,9 @@ function SkillsSection({ scrollToSection }: { scrollToSection?: (index: number) 
         <div className="mt-8 p-6 border border-terminal-green/30 rounded-lg bg-terminal-bg/50">
           <h3 className="text-terminal-green text-lg font-semibold mb-3">Current Focus</h3>
           <p className="text-terminal-gray text-sm leading-relaxed">
-            Most experienced with Python/R data pipelines, web development with React, and building tools 
-            for healthcare applications. Interested in problems at the intersection of biology, data engineering, 
-            and clinical impact.
+            Most experienced with Python data pipelines, PostgreSQL, and full-stack Django/React development.
+            Strong in systems-level thinking — concurrency, compiler design, relational data modeling.
+            Interested in data reliability, AI agents, and infrastructure problems at scale.
           </p>
         </div>
       </div>
@@ -811,69 +745,44 @@ function SkillsSection({ scrollToSection }: { scrollToSection?: (index: number) 
 function WorkSection({ scrollToSection }: { scrollToSection?: (index: number) => void }) {
     const experiences = [
     {
+      year: '2026',
+      title: 'Software Engineering Intern – Data Infrastructure & Full Stack',
+      company: 'Roche/Genentech',
+      period: 'June 2026 – October 2026',
+      location: 'Santa Clara, CA',
+      description: 'Architected enterprise PostgreSQL database with multi-column indexing to store and query PCR and NGS assay records across Roche\'s diagnostic portfolio.',
+      details: [
+        'Built domain-specific AI agent over live assay data, enabling natural language querying of PCR records across multiple assay types by internal scientists.',
+        'Engineered pre-ingestion drift detection pipeline monitoring schema validity and value distributions across ETL workflows, preventing silent data corruption in downstream agent responses.',
+        'Developed full-stack Django + React application with real-time PCR amplification curve visualizations, deployed via Docker with automated CI/CD validation.'
+      ],
+      tags: ['PostgreSQL', 'Python', 'Django', 'React', 'AI Agent', 'ETL', 'Docker', 'CI/CD']
+    },
+    {
       year: '2025',
-      title: 'Software Engineering Intern, Data Platform',
+      title: 'AI Research Engineering Intern',
       company: 'Neurotrack Technologies',
-      period: 'June–August 2025',
+      period: 'June 2025 – September 2025',
       location: 'Palo Alto, CA',
-      description: 'Designed and implemented modular data processing pipelines in Python and R to clean, structure, and analyze 10,000+ cognitive assessment records for a digital platform used in early Alzheimer\'s detection and monitoring.',
+      description: 'Engineered high-throughput data curation and feature pipelines in Python/SQL, ingesting and normalizing 10,000+ multimodal assessment records across 9 heterogeneous input schemas.',
       details: [
-        'Preprocessed raw cognitive performance data using SQL and ETL workflows to improve data quality and support downstream modeling and clinical evaluation.',
-        'Contributed to optimization of Neurotrack\'s clinical cognitive assessment platform used by healthcare providers and patients for early detection of neurological decline.'
+        'Designed automated validation and noise-filtering algorithms to detect schema drift and artifact corruption, increasing input dataset reliability for downstream training pipelines.',
+        'Trained and evaluated linear regression and parametric curve-fitting models in Python to map score distribution trajectories, using statistical evaluation metrics to prune 6 redundant assessment variants.'
       ],
-      tags: ['Python', 'R', 'SQL', 'Data Pipelines', 'Healthcare AI', 'Clinical Data']
+      tags: ['Python', 'SQL', 'Data Pipelines', 'ML', 'Schema Drift Detection', 'Statistical Modeling']
     },
     {
       year: '2023',
-      title: 'Bioinformatics Research Intern',
-      company: 'Petritsch Lab, Stanford University',
-      period: 'January 2023–September 2024',
-      location: 'Stanford, CA',
-      description: 'Led a genome analysis project analyzing RNA sequencing data to investigate molecular distinctions between glioma subtypes in a developmental and translational neuroscience lab.',
-      details: [
-        'Applied R-based statistical and bioinformatics workflows to extract biologically meaningful insights from high-dimensional sequencing datasets.',
-        'Developed automation scripts for processing and managing large genomic datasets, improving analysis efficiency and reproducibility across lab workflows.'
-      ],
-      tags: ['R', 'Bioinformatics', 'RNA-seq Analysis', 'Genomics', 'Statistical Analysis', 'Automation']
-    },
-    {
-      year: '2024',
-      title: 'Design Fellow',
+      title: 'Stanford Tech Fellowship',
       company: 'Pull for Progress',
-      period: '2024–Present',
+      period: 'June 2023 – September 2024',
       location: 'Stanford, CA',
-      description: 'Built a geospatial healthcare worker deployment tool using Python, Pandas, and Folium to model risk scoring, cost effectiveness, and regional prioritization in Burkina Faso.',
+      description: 'Engineered geospatial machine learning models in Python using multidimensional health metrics to predict regional risk profiles across 50,000+ healthcare data points.',
       details: [
-        'Developed interactive web applications and data stories using HTML, CSS, JavaScript, and D3.js to support global health partnerships, including work with the Stanford Global Health Center.',
-        'Created data-driven visualizations that help decision-makers optimize healthcare resource allocation in low-resource settings.'
+        'Applied statistical modeling and spatial feature extraction to optimize healthcare worker deployment algorithms in resource-limited settings.',
+        'Built reproducible data processing pipelines using Pandas and NumPy to clean, validate, and analyze high-dimensional public health datasets for strategic decision-making.'
       ],
-      tags: ['Python', 'Pandas', 'Folium', 'D3.js', 'Geospatial Analysis', 'Global Health']
-    },
-    {
-      year: '2025',
-      title: 'Healthcare Design Challenge — Finalist',
-      company: 'AMANI Project, Stanford',
-      period: '2025',
-      location: 'Stanford, CA',
-      description: 'Co-developed AMANI, a phone-based, AI-enabled mapping and reporting system for WASH hazards in refugee and low-resource settings.',
-      details: [
-        'Designed workflows for offline-first, geotagged hazard reporting to reduce outbreak response delays caused by limited connectivity.',
-        'Contributed to system design incorporating on-device AI checks, edge-efficient models, and human-in-the-loop verification for public health triage.'
-      ],
-      tags: ['Computer Vision', 'Edge AI', 'React Native', 'Public Health Tech', 'Offline-First']
-    },
-    {
-      year: '2023',
-      title: 'Tech & Innovation Fellow',
-      company: 'Khaista Boutique',
-      period: '2023–2024',
-      location: 'Remote',
-      description: 'Built and launched a React-based e-commerce platform enabling Afghan women artisans to sell goods globally. Prioritized accessibility, low-bandwidth performance, and user-centered design in collaboration with community stakeholders.',
-      details: [
-        'Implemented responsive design optimized for low-bandwidth environments and older devices common in target markets.',
-        'Built accessibility features including keyboard navigation and screen reader support to ensure platform inclusivity.'
-      ],
-      tags: ['React', 'Accessibility', 'Low-Bandwidth Optimization', 'Community Impact']
+      tags: ['Python', 'Pandas', 'NumPy', 'Geospatial ML', 'Statistical Modeling', 'Global Health']
     }
   ];
 
@@ -885,9 +794,9 @@ function WorkSection({ scrollToSection }: { scrollToSection?: (index: number) =>
 
       <div className="space-y-8">
         <p className="text-terminal-gray text-lg leading-relaxed max-w-4xl">
-          My experience spans computational neuroscience, bioinformatics, and health technology — 
-          from analyzing genomic data and building cognitive assessment platforms to designing 
-          AI-powered tools for global health applications.
+          My experience spans data infrastructure, AI systems, and full-stack engineering —
+          from building enterprise-scale ETL pipelines and AI agents to geospatial ML and
+          clinical data platforms.
         </p>
 
         <div className="relative max-w-4xl">
@@ -945,6 +854,13 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
   
   const projects = [
+    {
+      title: 'PCR Assay Data Platform — Roche',
+      description: 'Enterprise PostgreSQL database, ETL drift detection pipeline, domain-specific AI agent for NL-to-SQL querying, and full-stack Django + React application for Roche\'s diagnostic assay portfolio.',
+      tech: ['PostgreSQL', 'Python', 'Django', 'React', 'AI Agent', 'ETL', 'Docker', 'NL-to-SQL'],
+      image: null,
+      route: '/projects/roche'
+    },
     {
       title: 'AMANI',
       description: 'AI-enabled WASH hazard mapping platform for refugee and low-resource settings. Phone-based AR system with offline-first reporting, edge AI, and human-in-loop verification. Stanford Healthcare Design Challenge Finalist.',

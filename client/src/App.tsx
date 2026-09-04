@@ -9,11 +9,13 @@ import ModestFilterProject from "@/pages/modestfilter";
 import MobileMaristanProject from "@/pages/mobile-maristan";
 import KhaistaBoutiqueProject from "@/pages/khaista-boutique";
 import AmaniProject from "@/pages/amani";
+import RocheProject from "@/pages/roche";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/projects/roche" component={RocheProject} />
       <Route path="/projects/modestfilter" component={ModestFilterProject} />
       <Route path="/projects/mobile-maristan" component={MobileMaristanProject} />
       <Route path="/projects/khaista-boutique" component={KhaistaBoutiqueProject} />
