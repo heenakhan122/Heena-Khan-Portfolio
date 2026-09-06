@@ -303,15 +303,6 @@ function LandingSection({ scrollToSection }: { scrollToSection?: (index: number)
             ✦ Stanford '27
           </div>
 
-          {/* Floating right card */}
-          <div className="absolute -right-4 md:-right-48 bottom-16 hidden md:block bg-white rounded-2xl shadow-lg p-4 text-left border border-rose-50" style={{ width: '152px' }}>
-            <p className="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wide">Stack</p>
-            <div className="flex flex-wrap gap-1.5">
-              {['Python', 'SQL', 'React', 'Django', 'Docker'].map(s => (
-                <span key={s} className="text-xs bg-rose-50 text-rose-600 border border-rose-100 px-2 py-0.5 rounded-full font-medium">{s}</span>
-              ))}
-            </div>
-          </div>
 
           {/* Small decorative dot cluster top-left */}
           <div className="absolute -left-2 -top-2 z-20 hidden md:grid grid-cols-3 gap-1">
