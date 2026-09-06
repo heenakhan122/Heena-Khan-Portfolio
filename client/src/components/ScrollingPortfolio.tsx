@@ -272,39 +272,52 @@ function LandingSection({ scrollToSection }: { scrollToSection?: (index: number)
         {/* Photo + floating cards */}
         <div className="relative inline-block mb-10">
 
+          {/* Decorative rose blob behind photo */}
+          <div className="absolute -inset-4 bg-rose-100 rounded-[2.5rem] rotate-3 -z-10" />
+          <div className="absolute -inset-2 bg-rose-50 rounded-3xl -rotate-2 -z-10" />
+
           {/* Floating left card */}
-          <div className="absolute -left-4 md:-left-44 top-10 hidden md:block bg-white rounded-2xl shadow-lg p-4 w-36 text-left border border-rose-50">
-            <p className="text-xs text-gray-400 mb-2 font-medium">Find me on</p>
-            <div className="space-y-2">
-              <a href="https://github.com/heenakhan122" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-gray-600 hover:text-rose-600 transition-colors font-medium">
-                ⌥ GitHub
+          <div className="absolute -left-4 md:-left-48 top-12 hidden md:block bg-white rounded-2xl shadow-lg p-4 w-38 text-left border border-rose-50" style={{ width: '148px' }}>
+            <p className="text-xs text-gray-400 mb-3 font-medium uppercase tracking-wide">Find me on</p>
+            <div className="space-y-2.5">
+              <a href="https://github.com/heenakhan122" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-gray-700 hover:text-rose-600 transition-colors font-medium">
+                <span className="w-5 h-5 bg-gray-900 text-white rounded-full flex items-center justify-center text-[9px]">gh</span>
+                GitHub
               </a>
-              <a href="https://linkedin.com/in/heenakhan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-gray-600 hover:text-rose-600 transition-colors font-medium">
-                in LinkedIn
+              <a href="https://linkedin.com/in/heenakhan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-gray-700 hover:text-rose-600 transition-colors font-medium">
+                <span className="w-5 h-5 bg-blue-600 text-white rounded-full flex items-center justify-center text-[9px]">in</span>
+                LinkedIn
               </a>
             </div>
           </div>
 
-          {/* Photo */}
+          {/* Photo — bigger */}
           <img
             src={headshotImage}
             alt="Heena Khan at Stanford"
-            className="w-64 md:w-72 h-80 md:h-96 object-cover object-top rounded-3xl shadow-2xl"
+            className="w-72 md:w-80 h-96 md:h-[480px] object-cover object-top rounded-3xl shadow-2xl relative z-10"
           />
 
           {/* Stanford badge */}
-          <div className="absolute -top-3 -right-3 bg-[#1f1121] text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
-            Stanford '27
+          <div className="absolute -top-4 -right-4 z-20 bg-[#1f1121] text-white text-xs font-medium px-3 py-2 rounded-full shadow-lg whitespace-nowrap">
+            ✦ Stanford '27
           </div>
 
           {/* Floating right card */}
-          <div className="absolute -right-4 md:-right-44 bottom-10 hidden md:block bg-white rounded-2xl shadow-lg p-4 w-40 text-left border border-rose-50">
-            <p className="text-xs text-gray-400 mb-2 font-medium">Stack</p>
-            <div className="flex flex-wrap gap-1">
+          <div className="absolute -right-4 md:-right-48 bottom-16 hidden md:block bg-white rounded-2xl shadow-lg p-4 text-left border border-rose-50" style={{ width: '152px' }}>
+            <p className="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wide">Stack</p>
+            <div className="flex flex-wrap gap-1.5">
               {['Python', 'SQL', 'React', 'Django', 'Docker'].map(s => (
-                <span key={s} className="text-xs bg-rose-50 text-rose-600 border border-rose-100 px-2 py-0.5 rounded-full">{s}</span>
+                <span key={s} className="text-xs bg-rose-50 text-rose-600 border border-rose-100 px-2 py-0.5 rounded-full font-medium">{s}</span>
               ))}
             </div>
+          </div>
+
+          {/* Small decorative dot cluster top-left */}
+          <div className="absolute -left-2 -top-2 z-20 hidden md:grid grid-cols-3 gap-1">
+            {[...Array(9)].map((_, i) => (
+              <div key={i} className="w-1.5 h-1.5 rounded-full bg-rose-300 opacity-60" />
+            ))}
           </div>
 
         </div>
