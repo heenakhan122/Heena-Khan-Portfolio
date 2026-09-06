@@ -152,11 +152,11 @@ export default function ScrollingPortfolio() {
   return (
     <div className="bg-terminal-bg">
       {/* Scroll Progress Bar */}
-      <div className="fixed top-0 left-0 right-0 z-[60] h-1">
-        <div 
-          className="progress-rainbow transition-all duration-300"
+      <div className="fixed top-0 left-0 right-0 z-[60] h-0.5 bg-slate-100">
+        <div
+          className="h-full bg-terminal-green transition-all duration-300"
           style={{ width: `${scrollProgress}%` }}
-        ></div>
+        />
       </div>
 
       {/* Navigation */}
@@ -174,10 +174,10 @@ export default function ScrollingPortfolio() {
                   className={`transition-colors ${
                     activeSection === sectionIndex
                       ? 'text-terminal-green'
-                      : 'text-terminal-gray hover:text-terminal-white'
+                      : 'text-slate-500 hover:text-slate-800'
                   }`}
                 >
-                  {index}. {section.title}
+                  {section.title}
                 </button>
               );
             })}
@@ -217,51 +217,6 @@ export default function ScrollingPortfolio() {
         );
       })}
 
-      {/* Interactive Command Line Footer */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 bg-terminal-bg/95 backdrop-blur-sm border-t border-terminal-green/30 mobile-command-footer">
-        <div className="flex items-center px-6 py-3 font-mono text-sm md:px-6 md:py-3 mobile-command-footer">
-          <span className="text-terminal-green mr-2 text-xs md:text-sm">heena@stanford:~$</span>
-          <div className="flex-1 flex items-center overflow-x-auto">
-            <span className="text-terminal-gray mr-2 command-text hidden md:inline">try: </span>
-            <button 
-              onClick={() => scrollToSection(1)}
-              className="text-terminal-green hover:text-pink-400 transition-colors mr-2 md:mr-4 hover:underline text-xs md:text-sm whitespace-nowrap"
-              data-testid="cmd-about"
-              aria-label="Go to About section"
-            >
-              whoami
-            </button>
-            <button 
-              onClick={() => scrollToSection(2)}
-              className="text-terminal-green hover:text-pink-400 transition-colors mr-2 md:mr-4 hover:underline text-xs md:text-sm whitespace-nowrap mobile-hidden"
-              data-testid="cmd-skills"
-              aria-label="Go to Skills section"
-            >
-              skills
-            </button>
-            <button 
-              onClick={() => scrollToSection(4)}
-              className="text-terminal-green hover:text-pink-400 transition-colors mr-2 md:mr-4 hover:underline text-xs md:text-sm whitespace-nowrap"
-              data-testid="cmd-projects"
-              aria-label="Go to Projects section"
-            >
-              projects
-            </button>
-            <button 
-              onClick={() => scrollToSection(5)}
-              className="text-terminal-green hover:text-pink-400 transition-colors mr-2 md:mr-4 hover:underline text-xs md:text-sm whitespace-nowrap"
-              data-testid="cmd-contact"
-              aria-label="Go to Contact section"
-            >
-              contact
-            </button>
-          </div>
-          <div className="flex items-center gap-1 md:gap-2">
-            <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-terminal-green rounded-full animate-pulse"></div>
-            <span className="text-terminal-green/70 text-xs hidden md:inline">ONLINE</span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
@@ -404,7 +359,7 @@ function AboutSection({ scrollToSection }: { scrollToSection?: (index: number) =
   return (
     <div className="max-w-6xl px-8 w-full pt-16">
       <div className="mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold text-terminal-green mb-2">ABOUT <span className="text-terminal-green">&#123;</span></h2>
+        <h2 className="text-3xl font-bold text-slate-900 mb-2">About</h2>
       </div>
 
       <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -490,7 +445,7 @@ function AboutSection({ scrollToSection }: { scrollToSection?: (index: number) =
         </div>
       </div>
 
-      <div className="mt-12 text-terminal-green text-2xl">&#125;</div>
+      
     </div>
   );
 }
@@ -553,7 +508,7 @@ function SkillsSection({ scrollToSection }: { scrollToSection?: (index: number) 
   return (
     <div className="max-w-6xl px-8 w-full pt-16">
       <div className="mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold text-terminal-green mb-2">SKILLS <span className="text-terminal-green">&#123;</span></h2>
+        <h2 className="text-3xl font-bold text-slate-900 mb-2">Skills</h2>
       </div>
 
       <div className="space-y-12">
@@ -595,7 +550,7 @@ function SkillsSection({ scrollToSection }: { scrollToSection?: (index: number) 
         </div>
       </div>
 
-      <div className="mt-12 text-terminal-green text-2xl">&#125;</div>
+      
     </div>
   );
 }
@@ -661,7 +616,7 @@ function WorkSection({ scrollToSection }: { scrollToSection?: (index: number) =>
   return (
     <div className="max-w-6xl px-8 w-full pt-16">
       <div className="mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold text-terminal-green mb-2">WORK <span className="text-terminal-green">&#123;</span></h2>
+        <h2 className="text-3xl font-bold text-slate-900 mb-2">Experience</h2>
       </div>
 
       <div className="space-y-8">
@@ -716,7 +671,7 @@ function WorkSection({ scrollToSection }: { scrollToSection?: (index: number) =>
         </div>
       </div>
 
-      <div className="mt-12 text-terminal-green text-2xl">&#125;</div>
+      
     </div>
   );
 }
@@ -785,7 +740,7 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
   return (
     <div className="max-w-6xl px-8 w-full pt-16">
       <div className="mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold text-terminal-green mb-2">PROJECTS <span className="text-terminal-green">&#123;</span></h2>
+        <h2 className="text-3xl font-bold text-slate-900 mb-2">Projects</h2>
       </div>
 
       <div className="space-y-8">
@@ -814,7 +769,7 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
 
           {/* Single Project Display */}
           <div className="mx-16">
-            <div className="group border border-terminal-green/30 rounded-lg overflow-hidden bg-terminal-bg/30 hover:border-terminal-green transition-all duration-500 transform-gpu hover:scale-[1.02] hover:shadow-2xl hover:shadow-terminal-green/20 hover:-translate-y-2 perspective-1000 hover:rotate-y-2 hover:rotate-x-1 h-80 md:h-96" style={{transformStyle: 'preserve-3d'}}>
+            <div className="group border border-slate-200 rounded-xl overflow-hidden bg-white hover:border-terminal-green/40 hover:shadow-lg transition-all duration-300 h-80 md:h-96">
               <div className="grid md:grid-cols-2 gap-0 h-full">
                 {/* Project Image */}
                 {currentProject.image ? (
@@ -840,8 +795,7 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
                 )}
                 
                 {/* Project Info */}
-                <div className="p-4 space-y-3 flex flex-col justify-between relative overflow-hidden h-full">
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-terminal-green/10 to-transparent rounded-full transform translate-x-8 -translate-y-8 group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-500"></div>
+                <div className="p-5 space-y-3 flex flex-col justify-between h-full">
                   <h3 className="text-terminal-green text-lg md:text-xl font-semibold transition-colors duration-300">{currentProject.title}</h3>
                   {currentProject.badge && (
                     <span className="inline-block px-2 py-0.5 bg-amber-50 border border-amber-300 text-amber-700 text-xs rounded-full font-medium">
@@ -899,7 +853,7 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
         </div>
       </div>
 
-      <div className="mt-12 text-terminal-green text-2xl">&#125;</div>
+      
     </div>
   );
 }
@@ -909,7 +863,7 @@ function ContactSection({ scrollToSection }: { scrollToSection?: (index: number)
   return (
     <div className="max-w-4xl px-8 w-full text-center pt-16">
       <div className="mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold text-terminal-green mb-2">CONTACT <span className="text-terminal-green">&#123;</span></h2>
+        <h2 className="text-3xl font-bold text-slate-900 mb-2">Contact</h2>
       </div>
 
       <div className="space-y-8">
@@ -939,7 +893,7 @@ function ContactSection({ scrollToSection }: { scrollToSection?: (index: number)
         </div>
       </div>
 
-      <div className="mt-12 text-terminal-green text-2xl">&#125;</div>
+      
     </div>
   );
 }
@@ -951,7 +905,7 @@ function ResumeSection({ scrollToSection }: { scrollToSection?: (index: number) 
   return (
     <div className="max-w-4xl px-8 w-full text-center pt-16">
       <div className="mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold text-terminal-green mb-2">RESUME <span className="text-terminal-green">&#123;</span></h2>
+        <h2 className="text-3xl font-bold text-slate-900 mb-2">Resume</h2>
       </div>
 
       <div className="space-y-8">
@@ -982,7 +936,7 @@ function ResumeSection({ scrollToSection }: { scrollToSection?: (index: number) 
         </div>
       </div>
 
-      <div className="mt-12 text-terminal-green text-2xl">&#125;</div>
+      
     </div>
   );
 }
