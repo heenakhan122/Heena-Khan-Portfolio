@@ -354,22 +354,7 @@ function AboutSection({ scrollToSection }: { scrollToSection?: (index: number) =
             English. At Neurotrack I built pipelines for cognitive assessment tools used in
             Alzheimer's detection research. At Stanford, AMANI reached the Healthcare Design
             Challenge finals — a mapping tool designed for refugee camps with no internet.
-            Fueled by espresso (part-time barista, full-time engineer).
           </p>
-
-          {/* Stat row */}
-          <div className="grid grid-cols-3 gap-4 pt-4 border-t border-slate-100">
-            {[
-              { num: '3', label: 'internships' },
-              { num: '50k+', label: 'data points modeled' },
-              { num: '2027', label: 'graduation' },
-            ].map(s => (
-              <div key={s.label}>
-                <p className="text-2xl font-bold text-gray-900">{s.num}</p>
-                <p className="text-xs text-gray-400 uppercase tracking-wide">{s.label}</p>
-              </div>
-            ))}
-          </div>
 
           {/* Strength cards */}
           <div className="grid grid-cols-2 gap-3 pt-2">
@@ -398,7 +383,7 @@ function AboutSection({ scrollToSection }: { scrollToSection?: (index: number) =
             {[
               { label: 'University', val: 'Stanford' },
               { label: 'Major', val: 'CS (AI) + Biology' },
-              { label: 'Currently', val: 'Roche/Genentech' },
+              { label: 'Graduation', val: 'June 2027' },
               { label: 'Email', val: 'henakhan@stanford.edu' },
             ].map(r => (
               <div key={r.label} className="flex justify-between py-2 border-b border-slate-100">
