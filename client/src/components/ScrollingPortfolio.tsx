@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 // All images are in public folder for GitHub Pages deployment
-const headshotImage = "/Heena-Khan-Portfolio/heena-headshot.jpg";
+const headshotImage = "/Heena-Khan-Portfolio/heena-stanford.jpg";
 const modestFilterImage = "/Heena-Khan-Portfolio/modestfilter-preview.webp";
 const maristanImage = "/Heena-Khan-Portfolio/mobile-maristan-logo.svg";
 const khaistaImage = "/Heena-Khan-Portfolio/khaista-boutique-logo.jpg";
@@ -160,11 +160,10 @@ export default function ScrollingPortfolio() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-1 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
-        <div className="flex items-center justify-between px-6 py-4">
-          <div className="text-terminal-green font-semibold text-sm tracking-wide">Heena Khan</div>
-          
-          <div className="flex items-center gap-6 text-sm">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900">
+        <div className="max-w-5xl mx-auto flex items-center justify-between px-8 py-4">
+          <div className="text-white font-semibold text-sm tracking-wide">Heena Khan</div>
+          <div className="flex items-center gap-8 text-sm">
             {sections.slice(1).map((section, index) => {
               const sectionIndex = index + 1;
               return (
@@ -173,8 +172,8 @@ export default function ScrollingPortfolio() {
                   onClick={() => scrollToSection(sectionIndex)}
                   className={`transition-colors ${
                     activeSection === sectionIndex
-                      ? 'text-terminal-green'
-                      : 'text-slate-500 hover:text-slate-800'
+                      ? 'text-white'
+                      : 'text-gray-400 hover:text-gray-200'
                   }`}
                 >
                   {section.title}
@@ -252,56 +251,54 @@ function LandingSection({ scrollToSection }: { scrollToSection?: (index: number)
   }, []);
 
   return (
-    <div className="min-h-screen pt-16 flex items-center">
-      <div className="max-w-5xl mx-auto px-8 w-full grid md:grid-cols-2 gap-16 items-center py-20">
+    <div className="min-h-screen pt-16 bg-white flex items-center">
+      <div className="max-w-5xl mx-auto px-8 w-full grid md:grid-cols-2 gap-12 items-center py-16">
 
-        {/* Left: content */}
-        <div>
-          <p className="text-terminal-green text-sm font-semibold tracking-widest uppercase mb-4">
+        {/* Left: photo */}
+        <div className="flex justify-center md:justify-start order-2 md:order-1">
+          <div className="relative">
+            <img
+              src={headshotImage}
+              alt="Heena Khan at Stanford"
+              className="w-72 md:w-80 h-[420px] md:h-[480px] object-cover object-top rounded-2xl shadow-2xl"
+            />
+            {/* small floating badge */}
+            <div className="absolute -bottom-4 -right-4 bg-gray-900 text-white text-xs font-mono px-4 py-2 rounded-lg shadow-lg">
+              @ Roche/Genentech · 2026
+            </div>
+          </div>
+        </div>
+
+        {/* Right: content */}
+        <div className="order-1 md:order-2">
+          <p className="text-terminal-green text-xs font-bold tracking-widest uppercase mb-5">
             CS (AI) · Stanford University
           </p>
-          <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-3">
-            Heena Khan
+          <h1 className="text-6xl md:text-7xl font-bold text-gray-900 leading-none mb-5">
+            Heena<br />Khan.
           </h1>
-          <div className="h-8 mb-6">
-            <span className={`text-xl text-slate-500 transition-opacity duration-300 ${titleVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <div className="h-7 mb-6">
+            <span className={`text-lg text-gray-400 transition-opacity duration-300 ${titleVisible ? 'opacity-100' : 'opacity-0'}`}>
               {jobTitles[currentTitleIndex]}
             </span>
           </div>
-          <p className="text-slate-600 text-base leading-relaxed mb-8 max-w-md">
-            I build data pipelines, AI agents, and full-stack systems.
-            Strong CS fundamentals — systems programming, relational modeling, production engineering.
-            Currently interning at Roche/Genentech.
+          <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-sm">
+            Building data pipelines, AI agents, and full-stack systems.
+            Strong CS fundamentals across systems programming, relational modeling, and production engineering.
           </p>
           <div className="flex flex-wrap gap-3">
             <button
               onClick={() => scrollToSection && scrollToSection(5)}
-              className="px-6 py-2.5 bg-terminal-green text-white font-medium rounded-lg hover:opacity-90 transition-opacity text-sm"
+              className="px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-700 transition-colors text-sm"
             >
               Get in touch
             </button>
             <button
               onClick={() => scrollToSection && scrollToSection(4)}
-              className="px-6 py-2.5 border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-slate-400 hover:bg-slate-50 transition-all text-sm"
+              className="px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:border-gray-500 hover:bg-gray-50 transition-all text-sm"
             >
               View projects →
             </button>
-          </div>
-        </div>
-
-        {/* Right: terminal */}
-        <div className="bg-gray-950 rounded-xl shadow-2xl border border-gray-800 overflow-hidden">
-          <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-800 bg-gray-900">
-            <div className="w-3 h-3 rounded-full bg-red-500/80" />
-            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-            <div className="w-3 h-3 rounded-full bg-green-500/80" />
-            <span className="text-gray-500 text-xs ml-3 font-mono">heena@stanford ~ </span>
-          </div>
-          <div className="p-6 font-mono min-h-[220px]">
-            <pre className="text-green-400 text-xs md:text-sm leading-relaxed whitespace-pre-wrap">
-              {terminalText}
-              {showCursor && <span className="bg-green-400 text-gray-950"> </span>}
-            </pre>
           </div>
         </div>
 
