@@ -191,7 +191,7 @@ export default function ScrollingPortfolio() {
           <section
             key={section.id}
             ref={(el) => (sectionRefs.current[index] = el)}
-            className={index === 0 ? "min-h-screen" : "py-24 border-t border-slate-100"}
+            className={index === 0 ? "min-h-screen bg-white" : `py-24 ${index % 2 === 0 ? 'bg-white' : 'bg-slate-50'}`}
             id={section.id}
           >
             <div className={index === 0 ? "" : "max-w-5xl mx-auto px-8 scroll-reveal"}>
