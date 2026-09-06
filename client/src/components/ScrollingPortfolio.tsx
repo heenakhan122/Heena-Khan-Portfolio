@@ -251,54 +251,86 @@ function LandingSection({ scrollToSection }: { scrollToSection?: (index: number)
   }, []);
 
   return (
-    <div className="min-h-screen pt-16 bg-white flex items-center">
-      <div className="max-w-5xl mx-auto px-8 w-full grid md:grid-cols-2 gap-12 items-center py-16">
+    <div className="min-h-screen pt-16 bg-white">
+      <div className="max-w-6xl mx-auto px-8">
 
-        {/* Left: photo */}
-        <div className="flex justify-center md:justify-start order-2 md:order-1">
-          <div className="relative">
-            <img
-              src={headshotImage}
-              alt="Heena Khan at Stanford"
-              className="w-72 md:w-80 h-[420px] md:h-[480px] object-cover object-top rounded-2xl shadow-2xl"
-            />
-            {/* small floating badge */}
-            <div className="absolute -bottom-4 -right-4 bg-gray-900 text-white text-xs font-mono px-4 py-2 rounded-lg shadow-lg">
-              @ Roche/Genentech · 2026
+        {/* Desktop: 3-column hero */}
+        <div className="hidden md:grid grid-cols-3 gap-8 items-center py-20" style={{minHeight: 'calc(100vh - 4rem)'}}>
+
+          {/* Left */}
+          <div className="text-right space-y-4">
+            <h1 className="text-7xl lg:text-8xl font-bold text-gray-900 leading-none tracking-tight">
+              software
+            </h1>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              CS (AI) at Stanford.<br />Building systems that ship.
+            </p>
+            <div className="flex justify-end gap-3 pt-2">
+              <button
+                onClick={() => scrollToSection && scrollToSection(5)}
+                className="px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-700 transition-colors"
+              >
+                Get in touch
+              </button>
+              <button
+                onClick={() => scrollToSection && scrollToSection(4)}
+                className="px-5 py-2.5 border border-gray-300 text-gray-700 text-sm font-medium rounded-lg hover:border-gray-500 hover:bg-gray-50 transition-all"
+              >
+                Projects →
+              </button>
             </div>
           </div>
+
+          {/* Center: photo */}
+          <div className="flex flex-col items-center gap-5">
+            <div className="relative">
+              <img
+                src={headshotImage}
+                alt="Heena Khan at Stanford"
+                className="w-60 h-80 object-cover object-top rounded-3xl shadow-2xl"
+              />
+              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-900 text-white text-xs font-mono px-3 py-1.5 rounded-full shadow-lg">
+                Roche/Genentech · 2026
+              </div>
+            </div>
+            <div className="text-center mt-2">
+              <p className="text-xs font-bold tracking-widest uppercase text-terminal-green">Heena Khan</p>
+              <p className="text-xs text-gray-400 mt-1">Stanford · CS (AI) · Class of 2027</p>
+            </div>
+          </div>
+
+          {/* Right */}
+          <div className="text-left space-y-4">
+            <h1 className="text-7xl lg:text-8xl font-bold text-gray-900 leading-none tracking-tight">
+              engineer.
+            </h1>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Data infrastructure.<br />AI agents. Full-stack systems.
+            </p>
+            <div className="flex flex-wrap gap-2 pt-2">
+              {['Python', 'PostgreSQL', 'Django', 'React', 'Docker'].map(t => (
+                <span key={t} className="px-3 py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs rounded-full font-medium">{t}</span>
+              ))}
+            </div>
+          </div>
+
         </div>
 
-        {/* Right: content */}
-        <div className="order-1 md:order-2">
-          <p className="text-terminal-green text-xs font-bold tracking-widest uppercase mb-5">
-            CS (AI) · Stanford University
-          </p>
-          <h1 className="text-6xl md:text-7xl font-bold text-gray-900 leading-none mb-5">
-            Heena<br />Khan.
-          </h1>
-          <div className="h-7 mb-6">
-            <span className={`text-lg text-gray-400 transition-opacity duration-300 ${titleVisible ? 'opacity-100' : 'opacity-0'}`}>
-              {jobTitles[currentTitleIndex]}
-            </span>
-          </div>
-          <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-sm">
-            Building data pipelines, AI agents, and full-stack systems.
-            Strong CS fundamentals across systems programming, relational modeling, and production engineering.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <button
-              onClick={() => scrollToSection && scrollToSection(5)}
-              className="px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-700 transition-colors text-sm"
-            >
-              Get in touch
-            </button>
-            <button
-              onClick={() => scrollToSection && scrollToSection(4)}
-              className="px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:border-gray-500 hover:bg-gray-50 transition-all text-sm"
-            >
-              View projects →
-            </button>
+        {/* Mobile: stacked */}
+        <div className="md:hidden flex flex-col items-center text-center py-16 gap-6 justify-center" style={{minHeight: 'calc(100vh - 4rem)'}}>
+          <img
+            src={headshotImage}
+            alt="Heena Khan"
+            className="w-48 h-64 object-cover object-top rounded-2xl shadow-xl"
+          />
+          <div>
+            <p className="text-xs font-bold tracking-widest uppercase text-terminal-green mb-2">CS (AI) · Stanford University</p>
+            <h1 className="text-5xl font-bold text-gray-900 leading-tight mb-1">Heena Khan.</h1>
+            <p className="text-gray-400 text-base mb-6">software engineer · data infrastructure · AI systems</p>
+            <div className="flex justify-center gap-3">
+              <button onClick={() => scrollToSection && scrollToSection(5)} className="px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg">Get in touch</button>
+              <button onClick={() => scrollToSection && scrollToSection(4)} className="px-5 py-2.5 border border-gray-300 text-gray-700 text-sm font-medium rounded-lg">Projects →</button>
+            </div>
           </div>
         </div>
 
@@ -311,94 +343,77 @@ function LandingSection({ scrollToSection }: { scrollToSection?: (index: number)
 function AboutSection({ scrollToSection }: { scrollToSection?: (index: number) => void }) {
   return (
     <div className="w-full">
-      <div className="mb-12">
-        <h2 className="text-3xl font-bold text-slate-900 mb-2">About</h2>
+      <div className="mb-10">
+        <div className="w-8 h-0.5 bg-terminal-green mb-4 rounded-full" />
+        <h2 className="text-3xl font-bold text-gray-900">About</h2>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-12 items-start">
-        <div className="space-y-6">
-          <p className="text-terminal-gray text-lg leading-relaxed">
-            I'm Heena Khan, a software engineer and CS (AI) student at Stanford with a Biology minor.
-            I build data pipelines, AI agents, and full-stack applications — strong CS fundamentals
-            from compilers to concurrency, with production experience at Roche/Genentech and Neurotrack.
+      <div className="grid md:grid-cols-5 gap-12 items-start">
+        {/* Left: text */}
+        <div className="md:col-span-3 space-y-5">
+          <p className="text-gray-600 text-lg leading-relaxed">
+            Software engineer and CS (AI) student at Stanford with a Biology minor. I build
+            data pipelines, AI agents, and full-stack systems — strong CS fundamentals from
+            compilers to concurrency, with production experience at Roche and Neurotrack.
+          </p>
+          <p className="text-gray-500 text-base leading-relaxed">
+            My edge: I go deep on systems and ship full-stack product. The biotech and health
+            work gives me domain breadth, but I'm competitive for any SWE, data engineering,
+            or AI role — not just health tech.
           </p>
 
-          <p className="text-terminal-gray text-lg leading-relaxed">
-            At Roche I designed enterprise PostgreSQL databases, drift detection ETL pipelines, and
-            an AI agent for natural language querying of live assay data. At Neurotrack I built
-            high-throughput data curation pipelines and ML models over 10,000+ multimodal records.
-          </p>
-
-          <p className="text-terminal-gray text-lg leading-relaxed">
-            My edge: I can go deep on systems (OS, compilers, memory) and ship full-stack product.
-            The healthcare and biology work gives me domain breadth, but I'm competitive for any
-            SWE, data engineering, or AI role — not just health tech.
-          </p>
-
-          <div className="space-y-4">
-            <h3 className="text-terminal-green font-semibold text-lg mt-6 mb-3">Core Strengths</h3>
-            <div className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-terminal-green rounded-full mt-2"></div>
-              <span className="text-terminal-white">Data infrastructure — ETL pipelines, schema drift detection, relational modeling</span>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-terminal-green rounded-full mt-2"></div>
-              <span className="text-terminal-white">AI systems — agents, NL-to-SQL, ML pipelines, model evaluation</span>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-terminal-green rounded-full mt-2"></div>
-              <span className="text-terminal-white">Full-stack engineering — Django, React, PostgreSQL, Docker, CI/CD</span>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="w-2 h-2 bg-terminal-green rounded-full mt-2"></div>
-              <span className="text-terminal-white">Systems fundamentals — concurrency, memory management, compiler design, OS</span>
-            </div>
-          </div>
-
-          <div className="mt-6 bg-terminal-green/10 border border-terminal-green p-4 rounded">
-            <p className="text-terminal-white text-sm">
-              <strong className="text-terminal-green">Stack:</strong> Python, Java, C++, SQL, JavaScript/TypeScript,
-              PostgreSQL, MySQL, Django, React, Docker, Linux, Bash, Git
-            </p>
-          </div>
-        </div>
-
-        <div className="flex justify-center">
-          <div className="w-full max-w-sm">
-            <div className="rounded border border-terminal-green overflow-hidden mb-4">
-              <img 
-                src={headshotImage} 
-                alt="Heena Khan"
-                className="w-full h-80 object-cover object-center"
-              />
-            </div>
-            <div className="text-center text-terminal-white mb-6">
-              <div className="font-semibold">Heena Khan</div>
-              <div className="text-terminal-gray">Stanford CS (AI) + Biology</div>
-              <div className="text-terminal-green text-sm mt-2">Data Infrastructure & AI Systems</div>
-            </div>
-
-            <div className="bg-terminal-gray/20 p-4 rounded border border-terminal-gray">
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-terminal-gray">University:</span>
-                  <span className="text-terminal-white">Stanford</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-terminal-gray">Major:</span>
-                  <span className="text-terminal-white">CS (AI) + Bio</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-terminal-gray">Graduation:</span>
-                  <span className="text-terminal-white">June 2027</span>
-                </div>
+          {/* Stat row */}
+          <div className="grid grid-cols-3 gap-4 pt-4 border-t border-slate-100">
+            {[
+              { num: '3', label: 'internships' },
+              { num: '50k+', label: 'data points modeled' },
+              { num: '2027', label: 'graduation' },
+            ].map(s => (
+              <div key={s.label}>
+                <p className="text-2xl font-bold text-gray-900">{s.num}</p>
+                <p className="text-xs text-gray-400 uppercase tracking-wide">{s.label}</p>
               </div>
-            </div>
+            ))}
+          </div>
+
+          {/* Strength cards */}
+          <div className="grid grid-cols-2 gap-3 pt-2">
+            {[
+              { title: 'Data Infrastructure', desc: 'ETL · drift detection · relational modeling' },
+              { title: 'AI Systems', desc: 'agents · NL-to-SQL · eval frameworks' },
+              { title: 'Full-Stack', desc: 'Django · React · PostgreSQL · Docker' },
+              { title: 'CS Fundamentals', desc: 'OS · compilers · concurrency · memory' },
+            ].map(c => (
+              <div key={c.title} className="p-4 rounded-xl border border-slate-200 hover:border-terminal-green/40 hover:bg-slate-50 transition-all">
+                <p className="text-sm font-semibold text-gray-800 mb-1">{c.title}</p>
+                <p className="text-xs text-gray-400">{c.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Right: photo + info */}
+        <div className="md:col-span-2 flex flex-col items-center gap-4">
+          <img
+            src={headshotImage}
+            alt="Heena Khan"
+            className="w-full max-w-xs h-80 object-cover object-top rounded-2xl shadow-lg"
+          />
+          <div className="w-full max-w-xs space-y-2 text-sm">
+            {[
+              { label: 'University', val: 'Stanford' },
+              { label: 'Major', val: 'CS (AI) + Biology' },
+              { label: 'Currently', val: 'Roche/Genentech' },
+              { label: 'Email', val: 'henakhan@stanford.edu' },
+            ].map(r => (
+              <div key={r.label} className="flex justify-between py-2 border-b border-slate-100">
+                <span className="text-gray-400">{r.label}</span>
+                <span className="text-gray-800 font-medium">{r.val}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-
-      
     </div>
   );
 }
@@ -461,7 +476,7 @@ function SkillsSection({ scrollToSection }: { scrollToSection?: (index: number) 
   return (
     <div className="w-full">
       <div className="mb-12">
-        <h2 className="text-3xl font-bold text-slate-900 mb-2">Skills</h2>
+        <div className="w-8 h-0.5 bg-terminal-green mb-4 rounded-full"></div><h2 className="text-3xl font-bold text-gray-900">Skills</h2>
       </div>
 
       <div className="space-y-12">
@@ -569,7 +584,7 @@ function WorkSection({ scrollToSection }: { scrollToSection?: (index: number) =>
   return (
     <div className="w-full">
       <div className="mb-12">
-        <h2 className="text-3xl font-bold text-slate-900 mb-2">Experience</h2>
+        <div className="w-8 h-0.5 bg-terminal-green mb-4 rounded-full"></div><h2 className="text-3xl font-bold text-gray-900">Experience</h2>
       </div>
 
       <div className="space-y-8">
@@ -579,48 +594,35 @@ function WorkSection({ scrollToSection }: { scrollToSection?: (index: number) =>
           clinical data platforms.
         </p>
 
-        <div className="relative max-w-4xl">
-          {/* Vertical Timeline */}
-          <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-terminal-green"></div>
-            
-            {experiences.map((exp, index) => (
-              <div key={index} className="relative flex items-start mb-12 last:mb-0">
-                {/* Timeline dot */}
-                <div className="absolute left-6 w-4 h-4 bg-terminal-green rounded-full border-4 border-terminal-bg z-10"></div>
-                
-                {/* Content */}
-                <div className="ml-20 flex-1 space-y-4">
-                  <div className="space-y-2">
-                    <h3 className="text-terminal-green text-xl font-semibold">{exp.title} — {exp.company}</h3>
-                    <div className="text-terminal-gray text-sm">{exp.period} · {exp.location}</div>
-                    <p className="text-terminal-gray text-sm leading-relaxed max-w-2xl">{exp.description}</p>
-                  </div>
-                  
-                  {exp.details && (
-                    <div className="space-y-2 max-w-2xl">
-                      {exp.details.map((detail, detailIndex) => (
-                        <p key={detailIndex} className="text-terminal-gray text-sm leading-relaxed">
-                          {detail}
-                        </p>
-                      ))}
-                    </div>
-                  )}
-                  
-                  {exp.tags && (
-                    <div className="flex flex-wrap gap-2">
-                      {exp.tags.map((tag, tagIndex) => (
-                        <span key={tagIndex} className="px-3 py-1 bg-terminal-green/20 text-terminal-green text-sm rounded-full">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
+        <div className="space-y-6">
+          {experiences.map((exp, index) => (
+            <div key={index} className="p-6 rounded-2xl border border-slate-200 hover:border-terminal-green/30 hover:shadow-md transition-all bg-white">
+              <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
+                <div>
+                  <h3 className="text-gray-900 font-semibold text-lg">{exp.title}</h3>
+                  <p className="text-terminal-green text-sm font-medium mt-0.5">{exp.company}</p>
                 </div>
+                <span className="text-xs text-gray-400 bg-slate-50 border border-slate-200 px-3 py-1 rounded-full whitespace-nowrap">{exp.period}</span>
               </div>
-            ))}
-          </div>
+              <p className="text-gray-500 text-sm leading-relaxed mb-4">{exp.description}</p>
+              {exp.details && (
+                <ul className="space-y-1.5 mb-4">
+                  {exp.details.map((d, i) => (
+                    <li key={i} className="text-gray-400 text-sm leading-relaxed flex gap-2">
+                      <span className="text-terminal-green mt-1 shrink-0">›</span>{d}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {exp.tags && (
+                <div className="flex flex-wrap gap-2">
+                  {exp.tags.map((tag, i) => (
+                    <span key={i} className="px-2.5 py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs rounded-full">{tag}</span>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
 
@@ -693,7 +695,7 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
   return (
     <div className="w-full">
       <div className="mb-12">
-        <h2 className="text-3xl font-bold text-slate-900 mb-2">Projects</h2>
+        <div className="w-8 h-0.5 bg-terminal-green mb-4 rounded-full"></div><h2 className="text-3xl font-bold text-gray-900">Projects</h2>
       </div>
 
       <div className="space-y-8">
@@ -816,7 +818,7 @@ function ContactSection({ scrollToSection }: { scrollToSection?: (index: number)
   return (
     <div className="w-full text-center">
       <div className="mb-12">
-        <h2 className="text-3xl font-bold text-slate-900 mb-2">Contact</h2>
+        <div className="w-8 h-0.5 bg-terminal-green mb-4 rounded-full"></div><h2 className="text-3xl font-bold text-gray-900">Contact</h2>
       </div>
 
       <div className="space-y-8">
@@ -858,7 +860,7 @@ function ResumeSection({ scrollToSection }: { scrollToSection?: (index: number) 
   return (
     <div className="w-full text-center">
       <div className="mb-12">
-        <h2 className="text-3xl font-bold text-slate-900 mb-2">Resume</h2>
+        <div className="w-8 h-0.5 bg-terminal-green mb-4 rounded-full"></div><h2 className="text-3xl font-bold text-gray-900">Resume</h2>
       </div>
 
       <div className="space-y-8">
