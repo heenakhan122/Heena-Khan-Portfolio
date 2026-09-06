@@ -1,55 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: hsl(0, 0%, 4%);
-  --foreground: hsl(0, 0%, 100%);
-  --card: hsl(0, 0%, 8%);
-  --card-foreground: hsl(0, 0%, 100%);
-  --popover: hsl(0, 0%, 4%);
-  --popover-foreground: hsl(0, 0%, 100%);
-  --primary: hsl(328, 100%, 54%);
-  --primary-foreground: hsl(0, 0%, 4%);
-  --secondary: hsl(0, 0%, 20%);
-  --secondary-foreground: hsl(0, 0%, 100%);
-  --muted: hsl(0, 0%, 15%);
-  --muted-foreground: hsl(0, 0%, 70%);
-  --accent: hsl(328, 100%, 54%);
-  --accent-foreground: hsl(0, 0%, 4%);
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(222, 47%, 11%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(222, 47%, 11%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(222, 47%, 11%);
+  --primary: hsl(172, 66%, 32%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(210, 40%, 96%);
+  --secondary-foreground: hsl(222, 47%, 11%);
+  --muted: hsl(210, 40%, 96%);
+  --muted-foreground: hsl(215, 16%, 47%);
+  --accent: hsl(210, 40%, 96%);
+  --accent-foreground: hsl(222, 47%, 11%);
   --destructive: hsl(0, 84%, 60%);
   --destructive-foreground: hsl(0, 0%, 100%);
-  --border: hsl(328, 100%, 54%);
-  --input: hsl(0, 0%, 20%);
-  --ring: hsl(328, 100%, 54%);
-  --chart-1: hsl(328, 100%, 54%);
+  --border: hsl(214, 32%, 91%);
+  --input: hsl(214, 32%, 91%);
+  --ring: hsl(172, 66%, 32%);
+  --chart-1: hsl(172, 66%, 32%);
   --chart-2: hsl(173, 58%, 39%);
   --chart-3: hsl(197, 37%, 24%);
   --chart-4: hsl(43, 74%, 66%);
   --chart-5: hsl(27, 87%, 67%);
-  --sidebar: hsl(0, 0%, 8%);
-  --sidebar-foreground: hsl(0, 0%, 100%);
-  --sidebar-primary: hsl(328, 100%, 54%);
-  --sidebar-primary-foreground: hsl(0, 0%, 4%);
-  --sidebar-accent: hsl(0, 0%, 15%);
-  --sidebar-accent-foreground: hsl(328, 100%, 54%);
-  --sidebar-border: hsl(0, 0%, 20%);
-  --sidebar-ring: hsl(328, 100%, 54%);
-  --font-sans: 'JetBrains Mono', monospace;
-  --font-serif: 'JetBrains Mono', monospace;
+  --sidebar: hsl(0, 0%, 100%);
+  --sidebar-foreground: hsl(222, 47%, 11%);
+  --sidebar-primary: hsl(172, 66%, 32%);
+  --sidebar-primary-foreground: hsl(0, 0%, 100%);
+  --sidebar-accent: hsl(210, 40%, 96%);
+  --sidebar-accent-foreground: hsl(172, 66%, 32%);
+  --sidebar-border: hsl(214, 32%, 91%);
+  --sidebar-ring: hsl(172, 66%, 32%);
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --radius: 0.5rem;
-  
-  /* Terminal specific colors */
-  --terminal-bg: hsl(0, 0%, 4%);
-  --terminal-green: hsl(328, 100%, 54%);
-  --terminal-gray: hsl(0, 0%, 70%);
-  --terminal-white: hsl(0, 0%, 90%);
-  --terminal-yellow: hsl(60, 100%, 50%);
-  --terminal-red: hsl(0, 100%, 60%);
-  --terminal-blue: hsl(195, 100%, 50%);
+
+  /* Theme colors */
+  --terminal-bg: hsl(0, 0%, 100%);
+  --terminal-green: hsl(172, 66%, 32%);
+  --terminal-gray: hsl(215, 16%, 47%);
+  --terminal-white: hsl(222, 47%, 11%);
+  --terminal-yellow: hsl(38, 92%, 50%);
+  --terminal-red: hsl(0, 84%, 60%);
+  --terminal-blue: hsl(221, 83%, 53%);
 }
 
 .dark {
@@ -80,8 +80,8 @@
   }
 
   body {
-    @apply bg-terminal-bg text-terminal-white font-mono antialiased overflow-x-hidden;
-    font-family: 'JetBrains Mono', monospace;
+    @apply bg-terminal-bg text-terminal-white antialiased overflow-x-hidden;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 }
 
@@ -314,13 +314,13 @@
 
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(50px) rotateX(10deg);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .scroll-reveal.visible {
   opacity: 1;
-  transform: translateY(0) rotateX(0deg);
+  transform: translateY(0);
 }
 
 /* Neon Glow Effects */

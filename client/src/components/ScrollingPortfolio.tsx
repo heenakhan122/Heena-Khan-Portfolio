@@ -59,133 +59,6 @@ function useScrollReveal() {
 }
 
 
-// Color Splash Effect Component  
-function ColorSplashEffect() {
-  const [splashes, setSplashes] = useState<Array<{id: number, x: number, y: number, color: string}>>([]);
-
-  useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      const colors = ['#ff1493', '#00ffff', '#ff6b35', '#f7931e', '#00ff41', '#8a2be2'];
-      const randomColor = colors[Math.floor(Math.random() * colors.length)];
-      
-      const newSplash = {
-        id: Date.now(),
-        x: e.clientX,
-        y: e.clientY,
-        color: randomColor
-      };
-
-      setSplashes(prev => [...prev, newSplash]);
-
-      // Remove splash after animation
-      setTimeout(() => {
-        setSplashes(prev => prev.filter(splash => splash.id !== newSplash.id));
-      }, 600);
-    };
-
-    document.addEventListener('click', handleClick);
-    return () => document.removeEventListener('click', handleClick);
-  }, []);
-
-  return (
-    <div className="fixed inset-0 pointer-events-none z-50">
-      {splashes.map(splash => (
-        <div
-          key={splash.id}
-          className="color-splash"
-          style={{
-            left: splash.x - 10,
-            top: splash.y - 10,
-            backgroundColor: splash.color
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
-// Matrix Rain Component
-function MatrixRain() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+-=[]{}|;:,.<>?`~';
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    
-    const drops: number[] = [];
-    for (let i = 0; i < columns; i++) {
-      drops[i] = 1;
-    }
-    
-    function draw() {
-      if (!ctx || !canvas) return;
-      
-      // Check for reduced motion preference
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReducedMotion) return;
-      
-      ctx.fillStyle = 'rgba(4, 4, 4, 0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      
-      // Use theme color instead of hardcoded color
-      const themeColor = getComputedStyle(document.documentElement)
-        .getPropertyValue('--terminal-green').trim() || '#00ff41';
-      ctx.fillStyle = themeColor;
-      ctx.font = fontSize + 'px monospace';
-      
-      for (let i = 0; i < drops.length; i++) {
-        const text = characters.charAt(Math.floor(Math.random() * characters.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
-      }
-    }
-    
-    function animate() {
-      draw();
-      requestAnimationFrame(animate);
-    }
-    animate();
-    
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      // Recompute columns and reset drops
-      const newColumns = canvas.width / fontSize;
-      drops.length = Math.floor(newColumns);
-      for (let i = 0; i < drops.length; i++) {
-        drops[i] = Math.floor(Math.random() * canvas.height / fontSize);
-      }
-    };
-    
-    window.addEventListener('resize', handleResize);
-    
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-  
-  return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0 opacity-30"
-      style={{ mixBlendMode: 'multiply' }}
-    />
-  );
-}
 
 export default function ScrollingPortfolio() {
   const [activeSection, setActiveSection] = useState(0);
@@ -278,13 +151,7 @@ export default function ScrollingPortfolio() {
 
   return (
     <div className="bg-terminal-bg">
-      {/* Matrix Rain Background */}
-      <MatrixRain />
-      
-      {/* Interactive Color Splash Effects */}
-      <ColorSplashEffect />
-      
-      {/* Rainbow Progress Bar */}
+      {/* Scroll Progress Bar */}
       <div className="fixed top-0 left-0 right-0 z-[60] h-1">
         <div 
           className="progress-rainbow transition-all duration-300"
@@ -293,9 +160,9 @@ export default function ScrollingPortfolio() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-1 left-0 right-0 z-50 bg-terminal-bg/95 backdrop-blur-sm border-b border-terminal-green">
-        <div className="flex items-center justify-between p-4">
-          <div className="text-terminal-green text-sm">DRAG ANYWHERE</div>
+      <nav className="fixed top-1 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+        <div className="flex items-center justify-between px-6 py-4">
+          <div className="text-terminal-green font-semibold text-sm tracking-wide">Heena Khan</div>
           
           <div className="flex items-center gap-6 text-sm">
             {sections.slice(1).map((section, index) => {
@@ -472,27 +339,19 @@ function LandingSection({ scrollToSection }: { scrollToSection?: (index: number)
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="max-w-4xl px-8 z-10 relative">
         {/* Terminal Window */}
-        <div className="bg-terminal-bg border border-terminal-green rounded-lg mb-8 shadow-lg shadow-terminal-green/20">
-          <div className="flex items-center gap-2 px-4 py-2 border-b border-terminal-green/30">
+        <div className="bg-gray-950 border border-gray-800 rounded-xl mb-8 shadow-xl">
+          <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-800">
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
             <div className="w-3 h-3 rounded-full bg-green-500"></div>
-            <span className="text-terminal-gray text-sm ml-4">Terminal - heena@stanford</span>
+            <span className="text-gray-500 text-xs ml-4 font-mono">Terminal — heena@stanford</span>
           </div>
           <div className="p-6 font-mono">
-            <div className="text-terminal-green text-sm leading-relaxed whitespace-pre-wrap">
+            <div className="text-green-400 text-sm leading-relaxed whitespace-pre-wrap">
               {terminalText}
-              {showCursor && <span className="bg-terminal-green text-terminal-bg">█</span>}
+              {showCursor && <span className="bg-green-400 text-gray-950">█</span>}
             </div>
           </div>
-        </div>
-        
-        {/* Floating Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-2 h-2 bg-terminal-green/30 rounded-full animate-pulse"></div>
-          <div className="absolute top-1/3 right-20 w-1 h-1 bg-pink-400/40 rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
-          <div className="absolute bottom-1/3 left-1/4 w-1.5 h-1.5 bg-terminal-green/20 rounded-full animate-ping" style={{animationDelay: '2s'}}></div>
-          <div className="absolute top-2/3 right-1/3 w-1 h-1 bg-pink-300/30 rounded-full animate-pulse" style={{animationDelay: '3s'}}></div>
         </div>
         
         {/* Main Content - Appears after typing */}
@@ -534,8 +393,8 @@ function LandingSection({ scrollToSection }: { scrollToSection?: (index: number)
         </div>
       </div>
 
-      {/* Background gradient effect */}
-      <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-terminal-green/20 rounded-full blur-3xl opacity-30"></div>
+      {/* Subtle background accent */}
+      <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-teal-100 rounded-full blur-3xl opacity-40 pointer-events-none"></div>
     </div>
   );
 }
@@ -783,6 +642,19 @@ function WorkSection({ scrollToSection }: { scrollToSection?: (index: number) =>
         'Built reproducible data processing pipelines using Pandas and NumPy to clean, validate, and analyze high-dimensional public health datasets for strategic decision-making.'
       ],
       tags: ['Python', 'Pandas', 'NumPy', 'Geospatial ML', 'Statistical Modeling', 'Global Health']
+    },
+    {
+      year: '2023',
+      title: 'Bioinformatics Research Intern',
+      company: 'Petritsch Lab, Stanford University',
+      period: 'January 2023 – September 2024',
+      location: 'Stanford, CA',
+      description: 'Led genome analysis project investigating RNA sequencing data to study molecular distinctions between glioma subtypes in a developmental and translational neuroscience lab.',
+      details: [
+        'Applied R-based statistical and bioinformatics workflows to extract biologically meaningful insights from high-dimensional sequencing datasets.',
+        'Developed automation scripts for processing and managing large genomic datasets, improving analysis efficiency and reproducibility across lab workflows.'
+      ],
+      tags: ['R', 'RNA-seq', 'Bioinformatics', 'Genomics', 'Statistical Analysis', 'Automation']
     }
   ];
 
@@ -858,14 +730,16 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
       title: 'PCR Assay Data Platform — Roche',
       description: 'Enterprise PostgreSQL database, ETL drift detection pipeline, domain-specific AI agent for NL-to-SQL querying, and full-stack Django + React application for Roche\'s diagnostic assay portfolio.',
       tech: ['PostgreSQL', 'Python', 'Django', 'React', 'AI Agent', 'ETL', 'Docker', 'NL-to-SQL'],
-      image: null,
+      image: `${import.meta.env.BASE_URL}roche-preview.svg`,
+      badge: null,
       route: '/projects/roche'
     },
     {
       title: 'AMANI',
-      description: 'AI-enabled WASH hazard mapping platform for refugee and low-resource settings. Phone-based AR system with offline-first reporting, edge AI, and human-in-loop verification. Stanford Healthcare Design Challenge Finalist.',
-      tech: ['Computer Vision', 'Edge AI', 'React Native', 'Geospatial ML', 'AR'],
-      image: `${import.meta.env.BASE_URL}amani-preview.png`,
+      description: 'AI-enabled health mapping platform for low-resource settings. Offline-first reporting, edge AI computer vision, and human-in-loop verification.',
+      tech: ['Computer Vision', 'Edge AI', 'React Native', 'TensorFlow Lite', 'PostgreSQL'],
+      image: `${import.meta.env.BASE_URL}amani-preview.svg`,
+      badge: 'Stanford Healthcare Design Challenge Finalist',
       route: '/projects/amani'
     },
     {
@@ -873,6 +747,7 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
       description: 'Chrome extension using computer vision to filter clothing by modesty preferences with on-device processing.',
       tech: ['JavaScript', 'Chrome Extension APIs', 'computer vision', 'Web Workers'],
       image: modestFilterImage,
+      badge: null,
       route: '/projects/modestfilter'
     },
     {
@@ -880,6 +755,7 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
       description: 'Offline-first mental wellness PWA with Arabic/English support and culturally appropriate design.',
       tech: ['JavaScript', 'PWA', 'offline-first architecture', 'internationalization'],
       image: maristanImage,
+      badge: null,
       route: '/projects/mobile-maristan'
     },
     {
@@ -887,6 +763,7 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
       description: 'E-commerce platform empowering 100+ Afghan women artisans to sell handmade goods globally.',
       tech: ['React', 'CSS Grid', 'Responsive Design', 'Accessibility', 'E-Commerce'],
       image: khaistaImage,
+      badge: null,
       route: '/projects/khaista-boutique'
     }
   ];
@@ -965,8 +842,13 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
                 {/* Project Info */}
                 <div className="p-4 space-y-3 flex flex-col justify-between relative overflow-hidden h-full">
                   <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-terminal-green/10 to-transparent rounded-full transform translate-x-8 -translate-y-8 group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-500"></div>
-                  <h3 className="text-terminal-green text-lg md:text-xl font-semibold group-hover:text-pink-400 transition-colors duration-300">{currentProject.title}</h3>
-                  <p className="text-terminal-gray leading-relaxed text-sm md:text-base group-hover:text-terminal-white transition-colors duration-300">{currentProject.description}</p>
+                  <h3 className="text-terminal-green text-lg md:text-xl font-semibold transition-colors duration-300">{currentProject.title}</h3>
+                  {currentProject.badge && (
+                    <span className="inline-block px-2 py-0.5 bg-amber-50 border border-amber-300 text-amber-700 text-xs rounded-full font-medium">
+                      {currentProject.badge}
+                    </span>
+                  )}
+                  <p className="text-terminal-gray leading-relaxed text-sm md:text-base">{currentProject.description}</p>
                   
                   <div className="flex flex-wrap gap-2 mb-3">
                     {currentProject.tech.map((tech, techIndex) => (
@@ -981,9 +863,9 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
                   </div>
                   
                   {/* View Project Button */}
-                  <Link 
+                  <Link
                     href={currentProject.route}
-                    className="px-4 py-2 bg-terminal-green text-terminal-bg font-semibold rounded hover:bg-pink-400 hover:shadow-lg transition-all duration-300 flex items-center gap-2 inline-flex transform hover:scale-105 group-hover:translate-x-2 text-sm"
+                    className="px-4 py-2 bg-terminal-green text-white font-medium rounded-lg hover:opacity-90 transition-all duration-200 flex items-center gap-2 inline-flex text-sm"
                     data-testid="link-view-project"
                   >
                     View Project
