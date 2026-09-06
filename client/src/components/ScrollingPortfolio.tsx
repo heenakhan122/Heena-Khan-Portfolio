@@ -160,26 +160,30 @@ export default function ScrollingPortfolio() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900">
-        <div className="max-w-5xl mx-auto flex items-center justify-between px-8 py-4">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1f1121]">
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-8 py-3">
           <div className="text-white font-semibold text-sm tracking-wide">Heena Khan</div>
-          <div className="flex items-center gap-8 text-sm">
-            {sections.slice(1).map((section, index) => {
+          <div className="flex items-center gap-7 text-sm">
+            {sections.slice(1, -1).map((section, index) => {
               const sectionIndex = index + 1;
               return (
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(sectionIndex)}
-                  className={`transition-colors ${
-                    activeSection === sectionIndex
-                      ? 'text-white'
-                      : 'text-gray-400 hover:text-gray-200'
+                  className={`transition-colors hidden md:block ${
+                    activeSection === sectionIndex ? 'text-white' : 'text-gray-400 hover:text-gray-200'
                   }`}
                 >
                   {section.title}
                 </button>
               );
             })}
+            <button
+              onClick={() => scrollToSection(5)}
+              className="px-4 py-1.5 rounded-full text-sm font-medium bg-rose-600 text-white hover:bg-rose-700 transition-colors"
+            >
+              Let's Talk
+            </button>
           </div>
         </div>
       </nav>
@@ -188,8 +192,8 @@ export default function ScrollingPortfolio() {
       {sections.map((section, index) => {
         const SectionComponent = section.component;
         const isOdd = index % 2 === 1;
-        const bg = index === 0 ? 'bg-white' : isOdd ? 'bg-slate-50' : 'bg-white';
-        const waveFill = isOdd ? '#ffffff' : '#f8fafc';
+        const bg = index === 0 ? 'bg-white' : isOdd ? 'bg-rose-50' : 'bg-white';
+        const waveFill = isOdd ? '#ffffff' : '#fff1f2';
         return (
           <section
             key={section.id}
@@ -216,8 +220,6 @@ export default function ScrollingPortfolio() {
 
 // Landing Section
 function LandingSection({ scrollToSection }: { scrollToSection?: (index: number) => void }) {
-  const [terminalText, setTerminalText] = useState('');
-  const [showCursor, setShowCursor] = useState(true);
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [titleVisible, setTitleVisible] = useState(true);
 
@@ -225,28 +227,8 @@ function LandingSection({ scrollToSection }: { scrollToSection?: (index: number)
     "software engineer",
     "data infrastructure engineer",
     "AI systems builder",
-    "full stack developer",
-    "part time barista",
+    "part-time barista ☕",
   ];
-
-  const fullText = 'heena@stanford:~$ whoami\n> Heena Khan — CS (AI) @ Stanford\n\nheena@stanford:~$ focus\n> Data Infrastructure · AI Agents · Full-Stack · Systems\n\nheena@stanford:~$ current\n> SWE Intern @ Roche/Genentech\n> PostgreSQL · Django · React · NL-to-SQL agent\n\nheena@stanford:~$ _';
-
-  useEffect(() => {
-    let i = 0;
-    const type = () => {
-      if (i < fullText.length) {
-        setTerminalText(fullText.slice(0, i + 1));
-        i++;
-        setTimeout(type, Math.random() * 30 + 15);
-      }
-    };
-    setTimeout(type, 400);
-  }, []);
-
-  useEffect(() => {
-    const id = setInterval(() => setShowCursor(p => !p), 530);
-    return () => clearInterval(id);
-  }, []);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -260,87 +242,87 @@ function LandingSection({ scrollToSection }: { scrollToSection?: (index: number)
   }, []);
 
   return (
-    <div className="min-h-screen pt-16 bg-white">
-      <div className="max-w-6xl mx-auto px-8">
+    <div className="min-h-screen pt-16 relative overflow-hidden" style={{ background: '#fdf9f7' }}>
 
-        {/* Desktop: 3-column hero */}
-        <div className="hidden md:grid grid-cols-3 gap-8 items-center py-20" style={{minHeight: 'calc(100vh - 4rem)'}}>
+      {/* Rose gradient blob */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ height: '50%' }}>
+        <svg viewBox="0 0 1440 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <path d="M0,150 C360,300 1080,60 1440,150 L1440,300 L0,300 Z" fill="#fce7f3" opacity="0.8"/>
+        </svg>
+      </div>
 
-          {/* Left */}
-          <div className="text-right space-y-4">
-            <h1 className="text-7xl lg:text-8xl font-bold text-gray-900 leading-none tracking-tight">
-              software
-            </h1>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              CS (AI) at Stanford.<br />I love building things that actually hold up.
-            </p>
-            <div className="flex justify-end gap-3 pt-2">
-              <button
-                onClick={() => scrollToSection && scrollToSection(5)}
-                className="px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-700 transition-colors"
-              >
-                Get in touch
-              </button>
-              <button
-                onClick={() => scrollToSection && scrollToSection(4)}
-                className="px-5 py-2.5 border border-gray-300 text-gray-700 text-sm font-medium rounded-lg hover:border-gray-500 hover:bg-gray-50 transition-all"
-              >
-                Projects →
-              </button>
+      <div className="relative z-10 max-w-6xl mx-auto px-8 text-center" style={{ paddingTop: '2.5rem' }}>
+
+        {/* Status pill */}
+        <div className="inline-flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-sm border border-rose-100 mb-6">
+          <div className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
+          <span className="text-xs font-medium text-gray-500">Currently @ Roche/Genentech · Open to 2027 roles</span>
+        </div>
+
+        {/* Heading */}
+        <h1 className="text-5xl md:text-7xl font-bold text-gray-900 leading-tight mb-3">
+          I'm <span className="text-rose-600">Heena Khan.</span>
+        </h1>
+        <div className="h-8 mb-10">
+          <span className={`text-lg text-gray-400 transition-opacity duration-300 ${titleVisible ? 'opacity-100' : 'opacity-0'}`}>
+            {jobTitles[currentTitleIndex]}
+          </span>
+        </div>
+
+        {/* Photo + floating cards */}
+        <div className="relative inline-block mb-10">
+
+          {/* Floating left card */}
+          <div className="absolute -left-4 md:-left-44 top-10 hidden md:block bg-white rounded-2xl shadow-lg p-4 w-36 text-left border border-rose-50">
+            <p className="text-xs text-gray-400 mb-2 font-medium">Find me on</p>
+            <div className="space-y-2">
+              <a href="https://github.com/heenakhan122" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-gray-600 hover:text-rose-600 transition-colors font-medium">
+                ⌥ GitHub
+              </a>
+              <a href="https://linkedin.com/in/heenakhan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-gray-600 hover:text-rose-600 transition-colors font-medium">
+                in LinkedIn
+              </a>
             </div>
           </div>
 
-          {/* Center: photo */}
-          <div className="flex flex-col items-center gap-5">
-            <div className="relative">
-              <img
-                src={headshotImage}
-                alt="Heena Khan at Stanford"
-                className="w-60 h-80 object-cover object-top rounded-3xl shadow-2xl"
-              />
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gray-900 text-white text-xs font-mono px-3 py-1.5 rounded-full shadow-lg">
-                Roche/Genentech · 2026
-              </div>
-            </div>
-            <div className="text-center mt-2">
-              <p className="text-xs font-bold tracking-widest uppercase text-terminal-green">Heena Khan</p>
-              <p className="text-xs text-gray-400 mt-1">Stanford · CS (AI) · Class of 2027</p>
-            </div>
+          {/* Photo */}
+          <img
+            src={headshotImage}
+            alt="Heena Khan at Stanford"
+            className="w-64 md:w-72 h-80 md:h-96 object-cover object-top rounded-3xl shadow-2xl"
+          />
+
+          {/* Stanford badge */}
+          <div className="absolute -top-3 -right-3 bg-[#1f1121] text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+            Stanford '27
           </div>
 
-          {/* Right */}
-          <div className="text-left space-y-4">
-            <h1 className="text-7xl lg:text-8xl font-bold text-gray-900 leading-none tracking-tight">
-              engineer.
-            </h1>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Data infrastructure.<br />AI that does something real.
-            </p>
-            <div className="flex flex-wrap gap-2 pt-2">
-              {['Python', 'PostgreSQL', 'Django', 'React', 'Docker'].map(t => (
-                <span key={t} className="px-3 py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs rounded-full font-medium">{t}</span>
+          {/* Floating right card */}
+          <div className="absolute -right-4 md:-right-44 bottom-10 hidden md:block bg-white rounded-2xl shadow-lg p-4 w-40 text-left border border-rose-50">
+            <p className="text-xs text-gray-400 mb-2 font-medium">Stack</p>
+            <div className="flex flex-wrap gap-1">
+              {['Python', 'SQL', 'React', 'Django', 'Docker'].map(s => (
+                <span key={s} className="text-xs bg-rose-50 text-rose-600 border border-rose-100 px-2 py-0.5 rounded-full">{s}</span>
               ))}
             </div>
           </div>
 
         </div>
 
-        {/* Mobile: stacked */}
-        <div className="md:hidden flex flex-col items-center text-center py-16 gap-6 justify-center" style={{minHeight: 'calc(100vh - 4rem)'}}>
-          <img
-            src={headshotImage}
-            alt="Heena Khan"
-            className="w-48 h-64 object-cover object-top rounded-2xl shadow-xl"
-          />
-          <div>
-            <p className="text-xs font-bold tracking-widest uppercase text-terminal-green mb-2">CS (AI) · Stanford University</p>
-            <h1 className="text-5xl font-bold text-gray-900 leading-tight mb-1">Heena Khan.</h1>
-            <p className="text-gray-400 text-base mb-6">software engineer · data infrastructure · AI systems</p>
-            <div className="flex justify-center gap-3">
-              <button onClick={() => scrollToSection && scrollToSection(5)} className="px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg">Get in touch</button>
-              <button onClick={() => scrollToSection && scrollToSection(4)} className="px-5 py-2.5 border border-gray-300 text-gray-700 text-sm font-medium rounded-lg">Projects →</button>
-            </div>
-          </div>
+        {/* CTAs */}
+        <div className="flex justify-center gap-4 pb-16">
+          <button
+            onClick={() => scrollToSection && scrollToSection(4)}
+            className="px-7 py-3 rounded-full font-medium text-sm bg-rose-600 text-white hover:bg-rose-700 transition-colors shadow-md"
+          >
+            Projects →
+          </button>
+          <button
+            onClick={() => scrollToSection && scrollToSection(5)}
+            className="px-7 py-3 rounded-full font-medium text-sm bg-white border border-gray-200 text-gray-700 hover:border-rose-300 hover:text-rose-600 transition-all shadow-sm"
+          >
+            Get in touch
+          </button>
         </div>
 
       </div>

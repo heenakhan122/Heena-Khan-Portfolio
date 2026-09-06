@@ -11,7 +11,7 @@
   --card-foreground: hsl(222, 47%, 11%);
   --popover: hsl(0, 0%, 100%);
   --popover-foreground: hsl(222, 47%, 11%);
-  --primary: hsl(172, 66%, 32%);
+  --primary: hsl(333, 79%, 42%);
   --primary-foreground: hsl(0, 0%, 100%);
   --secondary: hsl(210, 40%, 96%);
   --secondary-foreground: hsl(222, 47%, 11%);
@@ -43,8 +43,8 @@
   --radius: 0.5rem;
 
   /* Theme colors */
-  --terminal-bg: hsl(0, 0%, 100%);
-  --terminal-green: hsl(172, 66%, 32%);
+  --terminal-bg: hsl(30, 50%, 98%);
+  --terminal-green: hsl(333, 79%, 42%);
   --terminal-gray: hsl(215, 16%, 47%);
   --terminal-white: hsl(222, 47%, 11%);
   --terminal-yellow: hsl(38, 92%, 50%);
