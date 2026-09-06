@@ -84,12 +84,12 @@ export default function ScrollingPortfolio() {
 
   const sections = [
     { id: 'landing', title: '', component: LandingSection },
-    { id: 'about', title: 'ABOUT', component: AboutSection },
-    { id: 'skills', title: 'SKILLS', component: SkillsSection },
-    { id: 'work', title: 'WORK', component: WorkSection },
-    { id: 'projects', title: 'PROJECTS', component: ProjectsSection },
-    { id: 'contact', title: 'CONTACT', component: ContactSection },
-    { id: 'resume', title: 'RESUME', component: ResumeSection }
+    { id: 'about', title: 'About', component: AboutSection },
+    { id: 'skills', title: 'Skills', component: SkillsSection },
+    { id: 'work', title: 'Experience', component: WorkSection },
+    { id: 'projects', title: 'Projects', component: ProjectsSection },
+    { id: 'contact', title: 'Contact', component: ContactSection },
+    { id: 'resume', title: 'Resume', component: ResumeSection }
   ];
 
   const scrollToSection = (index: number) => {
@@ -185,21 +185,6 @@ export default function ScrollingPortfolio() {
         </div>
       </nav>
 
-      {/* Side Navigation Dots */}
-      <div className="fixed right-8 top-1/2 transform -translate-y-1/2 flex flex-col space-y-3 z-50">
-        {sections.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => scrollToSection(index)}
-            className={`w-3 h-3 rounded-full border-2 transition-colors ${
-              activeSection === index
-                ? 'bg-terminal-green border-terminal-green'
-                : 'bg-transparent border-terminal-gray hover:border-terminal-green'
-            }`}
-          />
-        ))}
-      </div>
-
       {/* Sections */}
       {sections.map((section, index) => {
         const SectionComponent = section.component;
@@ -207,10 +192,10 @@ export default function ScrollingPortfolio() {
           <section
             key={section.id}
             ref={(el) => (sectionRefs.current[index] = el)}
-            className={index === 0 ? "min-h-screen" : "min-h-screen flex items-center justify-center"}
+            className={index === 0 ? "min-h-screen" : "py-24 border-t border-slate-100"}
             id={section.id}
           >
-            <div className="scroll-reveal">
+            <div className={index === 0 ? "" : "max-w-5xl mx-auto px-8 scroll-reveal"}>
               <SectionComponent scrollToSection={scrollToSection} />
             </div>
           </section>
@@ -221,135 +206,106 @@ export default function ScrollingPortfolio() {
   );
 }
 
-// Landing Section with Terminal Typing Animation
+// Landing Section
 function LandingSection({ scrollToSection }: { scrollToSection?: (index: number) => void }) {
   const [terminalText, setTerminalText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const [typingComplete, setTypingComplete] = useState(false);
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
-  const [titleVisible, setTitleVisible] = useState(false);
-  
+  const [titleVisible, setTitleVisible] = useState(true);
+
   const jobTitles = [
     "software engineer",
-    "CS (AI) @ Stanford",
     "data infrastructure engineer",
+    "AI systems builder",
     "full stack developer",
     "part time barista",
-    "AI systems builder"
   ];
 
-  const fullText = 'heena@stanford:~$ whoami\n> Heena Khan\n\nheena@stanford:~$ mission\n> CS (AI) @ Stanford | Software engineer who ships real systems\n\nheena@stanford:~$ focus\n> Data Infrastructure, AI Agents, Full-Stack, Systems Programming\n\nheena@stanford:~$ extras\n> Fueled by espresso, part-time barista';
-  
+  const fullText = 'heena@stanford:~$ whoami\n> Heena Khan — CS (AI) @ Stanford\n\nheena@stanford:~$ focus\n> Data Infrastructure · AI Agents · Full-Stack · Systems\n\nheena@stanford:~$ current\n> SWE Intern @ Roche/Genentech\n> PostgreSQL · Django · React · NL-to-SQL agent\n\nheena@stanford:~$ _';
+
   useEffect(() => {
-    let index = 0;
-    const typeText = () => {
-      if (index < fullText.length) {
-        setTerminalText(fullText.slice(0, index + 1));
-        index++;
-        setTimeout(typeText, Math.random() * 40 + 20);
-      } else {
-        setTypingComplete(true);
+    let i = 0;
+    const type = () => {
+      if (i < fullText.length) {
+        setTerminalText(fullText.slice(0, i + 1));
+        i++;
+        setTimeout(type, Math.random() * 30 + 15);
       }
     };
-    
-    const startTyping = setTimeout(typeText, 500);
-    
-    return () => clearTimeout(startTyping);
-  }, []);
-  
-  useEffect(() => {
-    const cursorInterval = setInterval(() => {
-      setShowCursor(prev => !prev);
-    }, 500);
-    
-    return () => clearInterval(cursorInterval);
+    setTimeout(type, 400);
   }, []);
 
   useEffect(() => {
-    if (!typingComplete) return;
-    
-    // Start first title
-    setTitleVisible(true);
-    
-    const titleCycle = () => {
-      // Hide current title
+    const id = setInterval(() => setShowCursor(p => !p), 530);
+    return () => clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    const id = setInterval(() => {
       setTitleVisible(false);
-      
       setTimeout(() => {
-        // Switch to next title
-        setCurrentTitleIndex((prev) => (prev + 1) % jobTitles.length);
-        // Show new title with typing effect
-        setTimeout(() => {
-          setTitleVisible(true);
-        }, 150);
-      }, 250);
-    };
-    
-    const interval = setInterval(titleCycle, 2500);
-    
-    return () => clearInterval(interval);
-  }, [typingComplete, jobTitles.length]);
+        setCurrentTitleIndex(p => (p + 1) % jobTitles.length);
+        setTitleVisible(true);
+      }, 300);
+    }, 2800);
+    return () => clearInterval(id);
+  }, []);
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="max-w-4xl px-8 z-10 relative">
-        {/* Terminal Window */}
-        <div className="bg-gray-950 border border-gray-800 rounded-xl mb-8 shadow-xl">
-          <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-800">
-            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
-            <span className="text-gray-500 text-xs ml-4 font-mono">Terminal — heena@stanford</span>
-          </div>
-          <div className="p-6 font-mono">
-            <div className="text-green-400 text-sm leading-relaxed whitespace-pre-wrap">
-              {terminalText}
-              {showCursor && <span className="bg-green-400 text-gray-950">█</span>}
-            </div>
-          </div>
-        </div>
-        
-        {/* Main Content - Appears after typing */}
-        <div className={`transition-all duration-1000 ${typingComplete ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} relative z-10`}>
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-terminal-green mb-2" data-text="Heena">
-            Heena
-          </h1>
-          <p className="text-xl md:text-2xl text-terminal-gray mb-4 tracking-wide">
-            CS @ Stanford
+    <div className="min-h-screen pt-16 flex items-center">
+      <div className="max-w-5xl mx-auto px-8 w-full grid md:grid-cols-2 gap-16 items-center py-20">
+
+        {/* Left: content */}
+        <div>
+          <p className="text-terminal-green text-sm font-semibold tracking-widest uppercase mb-4">
+            CS (AI) · Stanford University
           </p>
-          <h2 className="text-2xl md:text-3xl text-terminal-white mb-6 tracking-wide min-h-[3rem]">
-            <span className={`inline-block transition-all duration-500 ${titleVisible ? 'opacity-100 transform translate-x-0' : 'opacity-0 transform translate-x-2'}`}>
+          <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-3">
+            Heena Khan
+          </h1>
+          <div className="h-8 mb-6">
+            <span className={`text-xl text-slate-500 transition-opacity duration-300 ${titleVisible ? 'opacity-100' : 'opacity-0'}`}>
               {jobTitles[currentTitleIndex]}
             </span>
-          </h2>
-          <p className="text-terminal-gray text-lg md:text-xl max-w-2xl mb-8 leading-relaxed">
-            I'm Heena Khan, a software engineer and CS (AI) student at Stanford.
-            I build data pipelines, AI agents, and full-stack systems — strong in
-            systems programming, relational data modeling, and shipping production code.
-            I've worked across biotech, health tech, and global development, but the
-            engineering is the constant.
+          </div>
+          <p className="text-slate-600 text-base leading-relaxed mb-8 max-w-md">
+            I build data pipelines, AI agents, and full-stack systems.
+            Strong CS fundamentals — systems programming, relational modeling, production engineering.
+            Currently interning at Roche/Genentech.
           </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4">
-          <button 
-            onClick={() => scrollToSection && scrollToSection(5)} // Contact is index 5
-            className="px-8 py-3 bg-terminal-green text-terminal-bg font-semibold rounded hover:bg-terminal-green/90 transition-colors"
-          >
-            Contact Me
-          </button>
-          <button 
-            onClick={() => scrollToSection && scrollToSection(1)} // About is index 1
-            className="px-8 py-3 border border-terminal-green text-terminal-green font-semibold rounded hover:bg-terminal-green/10 transition-colors flex items-center gap-2"
-          >
-            Learn More
-            <span className="text-lg">→</span>
-          </button>
+          <div className="flex flex-wrap gap-3">
+            <button
+              onClick={() => scrollToSection && scrollToSection(5)}
+              className="px-6 py-2.5 bg-terminal-green text-white font-medium rounded-lg hover:opacity-90 transition-opacity text-sm"
+            >
+              Get in touch
+            </button>
+            <button
+              onClick={() => scrollToSection && scrollToSection(4)}
+              className="px-6 py-2.5 border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-slate-400 hover:bg-slate-50 transition-all text-sm"
+            >
+              View projects →
+            </button>
+          </div>
         </div>
-        </div>
-      </div>
 
-      {/* Subtle background accent */}
-      <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-teal-100 rounded-full blur-3xl opacity-40 pointer-events-none"></div>
+        {/* Right: terminal */}
+        <div className="bg-gray-950 rounded-xl shadow-2xl border border-gray-800 overflow-hidden">
+          <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-800 bg-gray-900">
+            <div className="w-3 h-3 rounded-full bg-red-500/80" />
+            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+            <div className="w-3 h-3 rounded-full bg-green-500/80" />
+            <span className="text-gray-500 text-xs ml-3 font-mono">heena@stanford ~ </span>
+          </div>
+          <div className="p-6 font-mono min-h-[220px]">
+            <pre className="text-green-400 text-xs md:text-sm leading-relaxed whitespace-pre-wrap">
+              {terminalText}
+              {showCursor && <span className="bg-green-400 text-gray-950"> </span>}
+            </pre>
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }
@@ -357,7 +313,7 @@ function LandingSection({ scrollToSection }: { scrollToSection?: (index: number)
 // About Section
 function AboutSection({ scrollToSection }: { scrollToSection?: (index: number) => void }) {
   return (
-    <div className="max-w-6xl px-8 w-full pt-16">
+    <div className="w-full">
       <div className="mb-12">
         <h2 className="text-3xl font-bold text-slate-900 mb-2">About</h2>
       </div>
@@ -506,7 +462,7 @@ function SkillsSection({ scrollToSection }: { scrollToSection?: (index: number) 
   ];
 
   return (
-    <div className="max-w-6xl px-8 w-full pt-16">
+    <div className="w-full">
       <div className="mb-12">
         <h2 className="text-3xl font-bold text-slate-900 mb-2">Skills</h2>
       </div>
@@ -614,7 +570,7 @@ function WorkSection({ scrollToSection }: { scrollToSection?: (index: number) =>
   ];
 
   return (
-    <div className="max-w-6xl px-8 w-full pt-16">
+    <div className="w-full">
       <div className="mb-12">
         <h2 className="text-3xl font-bold text-slate-900 mb-2">Experience</h2>
       </div>
@@ -738,7 +694,7 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
   const currentProject = projects[currentProjectIndex];
 
   return (
-    <div className="max-w-6xl px-8 w-full pt-16">
+    <div className="w-full">
       <div className="mb-12">
         <h2 className="text-3xl font-bold text-slate-900 mb-2">Projects</h2>
       </div>
@@ -861,7 +817,7 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
 // Contact Section
 function ContactSection({ scrollToSection }: { scrollToSection?: (index: number) => void }) {
   return (
-    <div className="max-w-4xl px-8 w-full text-center pt-16">
+    <div className="w-full text-center">
       <div className="mb-12">
         <h2 className="text-3xl font-bold text-slate-900 mb-2">Contact</h2>
       </div>
@@ -903,7 +859,7 @@ function ResumeSection({ scrollToSection }: { scrollToSection?: (index: number) 
   const resumePath = "/Heena_Khan_Resume.pdf";
   
   return (
-    <div className="max-w-4xl px-8 w-full text-center pt-16">
+    <div className="w-full text-center">
       <div className="mb-12">
         <h2 className="text-3xl font-bold text-slate-900 mb-2">Resume</h2>
       </div>
