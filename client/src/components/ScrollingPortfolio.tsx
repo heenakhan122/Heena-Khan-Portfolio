@@ -187,14 +187,23 @@ export default function ScrollingPortfolio() {
       {/* Sections */}
       {sections.map((section, index) => {
         const SectionComponent = section.component;
+        const isOdd = index % 2 === 1;
+        const bg = index === 0 ? 'bg-white' : isOdd ? 'bg-slate-50' : 'bg-white';
+        const waveFill = isOdd ? '#ffffff' : '#f8fafc';
         return (
           <section
             key={section.id}
             ref={(el) => (sectionRefs.current[index] = el)}
-            className={index === 0 ? "min-h-screen bg-white" : `py-24 ${index % 2 === 0 ? 'bg-white' : 'bg-slate-50'}`}
+            className={`${bg} ${index === 0 ? 'min-h-screen' : 'pb-24'}`}
             id={section.id}
           >
-            <div className={index === 0 ? "" : "max-w-5xl mx-auto px-8 scroll-reveal"}>
+            {/* Wave transition from previous section */}
+            {index > 0 && (
+              <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="w-full block -mb-1" style={{ height: '56px' }}>
+                <path d="M0,28 C240,56 480,0 720,28 C960,56 1200,0 1440,28 L1440,56 L0,56 Z" fill={waveFill} />
+              </svg>
+            )}
+            <div className={index === 0 ? "" : "max-w-5xl mx-auto px-8 pt-12 scroll-reveal"}>
               <SectionComponent scrollToSection={scrollToSection} />
             </div>
           </section>
@@ -263,7 +272,7 @@ function LandingSection({ scrollToSection }: { scrollToSection?: (index: number)
               software
             </h1>
             <p className="text-gray-400 text-sm leading-relaxed">
-              CS (AI) at Stanford.<br />Building systems that ship.
+              CS (AI) at Stanford.<br />I love building things that actually hold up.
             </p>
             <div className="flex justify-end gap-3 pt-2">
               <button
@@ -305,7 +314,7 @@ function LandingSection({ scrollToSection }: { scrollToSection?: (index: number)
               engineer.
             </h1>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Data infrastructure.<br />AI agents. Full-stack systems.
+              Data infrastructure.<br />AI that does something real.
             </p>
             <div className="flex flex-wrap gap-2 pt-2">
               {['Python', 'PostgreSQL', 'Django', 'React', 'Docker'].map(t => (
@@ -352,14 +361,18 @@ function AboutSection({ scrollToSection }: { scrollToSection?: (index: number) =
         {/* Left: text */}
         <div className="md:col-span-3 space-y-5">
           <p className="text-gray-600 text-lg leading-relaxed">
-            Software engineer and CS (AI) student at Stanford with a Biology minor. I build
-            data pipelines, AI agents, and full-stack systems — strong CS fundamentals from
-            compilers to concurrency, with production experience at Roche and Neurotrack.
+            I'm a CS student at Stanford studying AI, with a Biology minor and a deep interest
+            in data reliability. I care about building systems that actually hold up — the kind
+            where silent failures get caught, pipelines don't quietly corrupt downstream
+            outputs, and the code ships to something real.
           </p>
           <p className="text-gray-500 text-base leading-relaxed">
-            My edge: I go deep on systems and ship full-stack product. The biotech and health
-            work gives me domain breadth, but I'm competitive for any SWE, data engineering,
-            or AI role — not just health tech.
+            At Roche I built drift detection that catches schema changes before they break AI
+            responses, and an NL-to-SQL agent so scientists can query live assay data in plain
+            English. At Neurotrack I built pipelines for cognitive assessment tools used in
+            Alzheimer's detection research. At Stanford, AMANI reached the Healthcare Design
+            Challenge finals — a mapping tool designed for refugee camps with no internet.
+            Fueled by espresso (part-time barista, full-time engineer).
           </p>
 
           {/* Stat row */}
@@ -588,10 +601,9 @@ function WorkSection({ scrollToSection }: { scrollToSection?: (index: number) =>
       </div>
 
       <div className="space-y-8">
-        <p className="text-terminal-gray text-lg leading-relaxed max-w-4xl">
-          My experience spans data infrastructure, AI systems, and full-stack engineering —
-          from building enterprise-scale ETL pipelines and AI agents to geospatial ML and
-          clinical data platforms.
+        <p className="text-gray-500 text-base leading-relaxed max-w-3xl">
+          A mix of internships and research where I got to work on problems I actually cared about —
+          reliable data pipelines, AI tools that do something useful, and health tech that works under real constraints.
         </p>
 
         <div className="space-y-6">
