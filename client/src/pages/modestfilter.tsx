@@ -165,7 +165,7 @@ export default function ModestFilterProject() {
             <h2 className="text-2xl font-semibold text-terminal-green text-center mb-8">Cross-Platform Compatibility</h2>
             <div className="space-y-4 text-terminal-gray text-center mb-8">
               <p className="text-lg">
-                ModestFilter works seamlessly across major e-commerce platforms, adapting to different site layouts and product structures while maintaining consistent filtering performance.
+                ModestFilter works across ASOS, H&M, Nordstrom, Zara, and others — each site structures product data differently, so the extension adapts its selectors rather than expecting a standard format.
               </p>
             </div>
             
@@ -394,7 +394,7 @@ export default function ModestFilterProject() {
               <h3 className="text-xl font-semibold text-terminal-green">Key Engineering Challenges Solved</h3>
               <div className="space-y-4 text-terminal-gray leading-relaxed">
                 <p>
-                  <strong className="text-terminal-green">Inconsistent Data Sources:</strong> E-commerce sites structure product information completely differently. I solved this with multiple extraction strategies and robust fallback methods, ensuring high reliability across diverse platforms.
+                  <strong className="text-terminal-green">Inconsistent Data Sources:</strong> Every e-commerce site structures product info differently. I handled this with per-site CSS selectors and a generic fallback so the extension doesn't break when it hits an unknown layout.
                 </p>
                 <p>
                   <strong className="text-terminal-green">Performance vs. Accuracy Tradeoff:</strong> Real-time analysis across dozens of products could slow down browsing. I optimized by implementing bounded concurrency, viewport-focused processing, and intelligent caching of analysis results.
@@ -404,10 +404,10 @@ export default function ModestFilterProject() {
                 </p>
               </div>
 
-              <h3 className="text-xl font-semibold text-terminal-green">What This Project Demonstrates</h3>
+              <h3 className="text-xl font-semibold text-terminal-green">What I got out of it</h3>
               <div className="space-y-4 text-terminal-gray leading-relaxed">
                 <p>
-                  This project showcases several key areas relevant to large-scale systems:
+                  Browser extensions are a weird environment — no backend, sandboxed JS, weird security restrictions. Interesting constraints to build around:
                 </p>
               </div>
               <ul className="space-y-2 text-terminal-gray">
@@ -434,7 +434,7 @@ export default function ModestFilterProject() {
               </ul>
               <div className="space-y-4 text-terminal-gray leading-relaxed mt-4">
                 <p>
-                  The combination of algorithmic complexity (text + vision classification), systems challenges (cross-site compatibility), and performance optimization (real-time processing) makes this a comprehensive demonstration of full-stack engineering skills.
+                  Shipping this taught me more about browser internals than I expected — content script lifecycle, MV3's shift away from persistent background pages, and how MutationObserver can silently tank page performance if you're not careful about debouncing.
                 </p>
               </div>
 

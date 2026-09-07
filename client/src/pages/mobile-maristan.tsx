@@ -79,7 +79,7 @@ export default function MobileMaristanProject() {
               <h2 className="text-2xl font-semibold text-terminal-green">Overview</h2>
               <div className="space-y-4 text-terminal-gray text-lg leading-relaxed">
                 <p>
-                  During an Islamic Psychology course, I discovered the rich tradition of historical Maristans—medieval Islamic hospitals that pioneered holistic mental health treatment. This sparked an idea: what if we could bring that same comprehensive approach to mental wellness into people's pockets, while respecting both tradition and privacy?
+                  During an Islamic Psychology course, I discovered the rich tradition of historical Maristans—medieval Islamic hospitals that pioneered holistic mental health treatment. This sparked an idea: what if we could bring that same holistic approach to mental wellness into people's pockets, while respecting both tradition and privacy?
                 </p>
                 <p>
                   Inspired by Dr. Rania Awaad's work at Stanford's Muslim Mental Health & Islamic Psychology Lab, I'm developing Mobile Maristan as a Progressive Web App that makes Islamic psychology accessible to anyone with a smartphone.
@@ -141,7 +141,7 @@ export default function MobileMaristanProject() {
               <h3 className="text-xl font-semibold text-terminal-green">Technical Implementation Highlights</h3>
               <div className="space-y-4 text-terminal-gray leading-relaxed">
                 <p>
-                  <strong className="text-terminal-green">Client-Side State Architecture:</strong> Designed comprehensive state management using React Context and localStorage persistence, handling complex data relationships between mood tracking, journal entries, and therapeutic progress without external dependencies.
+                  <strong className="text-terminal-green">Client-Side State Architecture:</strong> Built state management using React Context and localStorage persistence, handling complex data relationships between mood tracking, journal entries, and therapeutic progress without external dependencies.
                 </p>
               </div>
               
@@ -392,7 +392,7 @@ export default function MobileMaristanProject() {
               <ul className="space-y-2 text-terminal-gray">
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 bg-terminal-green rounded-full mt-2"></div>
-                  <span><strong>Real User Metrics:</strong> Implemented comprehensive client-side performance tracking measuring Core Web Vitals across different devices and networks</span>
+                  <span><strong>Real User Metrics:</strong> Tracked client-side performance measuring Core Web Vitals across different devices and networks</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 bg-terminal-green rounded-full mt-2"></div>

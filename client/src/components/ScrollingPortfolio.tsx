@@ -653,7 +653,7 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
     },
     {
       title: 'Khaista Boutique',
-      description: 'E-commerce platform empowering 100+ Afghan women artisans to sell handmade goods globally.',
+      description: 'E-commerce platform connecting 100+ Afghan women artisans to buyers globally.',
       tech: ['React', 'CSS Grid', 'Responsive Design', 'Accessibility', 'E-Commerce'],
       image: khaistaImage,
       badge: null,

@@ -61,7 +61,7 @@ export default function AmaniProject() {
                   <div className="border-l-2 border-terminal-green/50 pl-4"><p className="text-terminal-white"><strong className="text-terminal-green">Lina</strong> (Human Biology, Design & Policy) - Prototyping and accessibility design</p></div>
                   <div className="border-l-2 border-terminal-green/50 pl-4"><p className="text-terminal-white"><strong className="text-terminal-green">Roshan</strong> (Biochemistry & Molecular Biology) - Healthcare workflows and analytics</p></div>
                 </div>
-                <p className="text-slate-600 text-sm mt-4">The team had direct experience working with refugee families through academic support programs, bringing crucial real-world context to our technical decisions.</p>
+                <p className="text-slate-600 text-sm mt-4">The team had direct experience working with refugee families through academic support programs, which shaped a lot of our technical decisions in ways a purely academic team wouldn't have gotten to.</p>
               </div>
             </CardContent>
           </Card>
@@ -90,7 +90,7 @@ export default function AmaniProject() {
                   <h3 className="text-lg font-semibold text-terminal-white">Privacy-Preserving System Design</h3>
                   <ul className="space-y-1 text-slate-600 text-sm">
                     <li>• Designed data flows to protect vulnerable reporter identities</li>
-                    <li>• Ensured compliance with humanitarian data protection standards</li>
+                    <li>• Made sure data flows met humanitarian data protection standards</li>
                     <li>• Built privacy-by-design into every workflow</li>
                   </ul>
                 </div>
@@ -287,7 +287,7 @@ export default function AmaniProject() {
                   <h3 className="text-lg font-semibold text-terminal-white mb-3">What Differentiated AMANI</h3>
                   <ul className="space-y-2 text-slate-600 text-sm">
                     <li className="flex items-start gap-2"><span className="text-terminal-green mt-1">▹</span><span>Real-world deployment viability over theoretical innovation</span></li>
-                    <li className="flex items-start gap-2"><span className="text-terminal-green mt-1">▹</span><span>Community-centered design that empowers vulnerable populations</span></li>
+                    <li className="flex items-start gap-2"><span className="text-terminal-green mt-1">▹</span><span>Community-centered design that puts reporting control in the hands of the people affected</span></li>
                     <li className="flex items-start gap-2"><span className="text-terminal-green mt-1">▹</span><span>Technical solutions to genuine edge AI, privacy, and offline architecture challenges</span></li>
                     <li className="flex items-start gap-2"><span className="text-terminal-green mt-1">▹</span><span>Clear pathway from technology implementation to measurable health outcomes</span></li>
                   </ul>

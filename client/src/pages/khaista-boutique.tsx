@@ -118,7 +118,7 @@ export default function KhaistaBoutiqueProject() {
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 bg-terminal-green rounded-full mt-2"></div>
-                  <span><strong>Backend:</strong> Node.js/Express API with comprehensive input validation using Zod schemas for request/response safety</span>
+                  <span><strong>Backend:</strong> Node.js/Express API with input validation using Zod schemas for request/response safety</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 bg-terminal-green rounded-full mt-2"></div>
@@ -253,7 +253,7 @@ export default function KhaistaBoutiqueProject() {
                     />
                   </div>
                   <p className="text-terminal-gray text-xs mt-3 text-center italic">
-                    Streamlined checkout process with transparent pricing and impact messaging
+                    Simple checkout flow with transparent pricing and impact messaging
                   </p>
                 </div>
               </div>
@@ -331,7 +331,7 @@ export default function KhaistaBoutiqueProject() {
               <ul className="space-y-2 text-terminal-gray">
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 bg-terminal-green rounded-full mt-2"></div>
-                  <span><strong>Payment Security:</strong> Integrated Stripe with comprehensive fraud detection, supporting international payment methods</span>
+                  <span><strong>Payment Security:</strong> Integrated Stripe with fraud detection, supporting international payment methods</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 bg-terminal-green rounded-full mt-2"></div>
@@ -343,14 +343,14 @@ export default function KhaistaBoutiqueProject() {
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 bg-terminal-green rounded-full mt-2"></div>
-                  <span><strong>Input Validation:</strong> Comprehensive server-side validation preventing injection attacks and malformed data processing</span>
+                  <span><strong>Input Validation:</strong> Server-side validation preventing injection attacks and malformed requests</span>
                 </li>
               </ul>
               
               <h3 className="text-xl font-semibold text-terminal-green">Monitoring & Business Intelligence</h3>
               <div className="space-y-4 text-terminal-gray leading-relaxed">
                 <p>
-                  <strong className="text-terminal-green">Comprehensive Analytics System:</strong> Custom analytics dashboard tracking conversion funnels, customer lifetime value, and product performance metrics with operational monitoring for real-time alerting on payment failures, inventory depletion, and system performance degradation.
+                  <strong className="text-terminal-green">Analytics:</strong> Custom analytics dashboard tracking conversion funnels, customer lifetime value, and product performance metrics with operational monitoring for real-time alerting on payment failures, inventory depletion, and system performance degradation.
                 </p>
               </div>
 
@@ -414,7 +414,7 @@ export default function KhaistaBoutiqueProject() {
               
               <div className="flex flex-wrap gap-3 mt-6">
                 <strong className="text-terminal-green w-full mb-2">Technologies:</strong>
-                {['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Drizzle ORM', 'Stripe', 'Tailwind CSS', 'GitHub Actions', 'Comprehensive Monitoring'].map((tech) => (
+                {['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Drizzle ORM', 'Stripe', 'Tailwind CSS', 'GitHub Actions', 'Monitoring'].map((tech) => (
                   <span key={tech} className="px-3 py-1.5 bg-terminal-green/20 text-terminal-green border border-terminal-green/30 rounded-full text-sm">
                     {tech}
                   </span>
@@ -453,10 +453,10 @@ export default function KhaistaBoutiqueProject() {
               <div className="p-4 border border-terminal-green/30 rounded-lg bg-terminal-bg/50 mt-6">
                 <h4 className="text-terminal-green font-semibold mb-2">Production-Quality E-commerce Platform</h4>
                 <div className="space-y-2 text-terminal-gray text-sm">
-                  <p><strong>Economic Impact:</strong> Supporting Afghan women entrepreneurs through comprehensive digital commerce solution</p>
+                  <p><strong>Economic Impact:</strong> Supporting Afghan women entrepreneurs through e-commerce platform</p>
                   <p><strong>Technical Excellence:</strong> Full-stack architecture with international optimization, security, and monitoring</p>
                   <p><strong>Cultural Preservation:</strong> Technology platform that honors traditional crafts while enabling global reach</p>
-                  <p><strong>Scalable Foundation:</strong> Architecture designed for growth in traffic, features, and international markets</p>
+                  <p><strong>Built to grow:</strong> Architecture that can handle more traffic, more SKUs, and more international markets without a rewrite</p>
                 </div>
               </div>
             </div>
