@@ -838,7 +838,7 @@ function ContactSection({ scrollToSection }: { scrollToSection?: (index: number)
 
 // Resume Section
 function ResumeSection({ scrollToSection }: { scrollToSection?: (index: number) => void }) {
-  const resumePath = "/Heena_Khan_Resume.pdf";
+  const resumePath = "/Heena-Khan-Portfolio/Heena_Khan_Resume.pdf";
   
   return (
     <div className="w-full text-center">

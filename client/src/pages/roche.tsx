@@ -147,14 +147,6 @@ export default function RocheProject() {
                     </ul>
                   </div>
                 </div>
-                <div className="bg-terminal-green/10 border border-terminal-green p-4 rounded">
-                  <p className="text-slate-700 text-sm">
-                    <strong className="text-terminal-green">Why this matters for data companies:</strong> Schema drift
-                    is one of the most common silent failure modes in production data pipelines. This
-                    is the same class of problem that Monte Carlo, Great Expectations, and Databricks
-                    Delta Live Tables solve at platform scale. I built it from scratch on a live enterprise DB.
-                  </p>
-                </div>
               </div>
             </CardContent>
           </Card>
@@ -245,38 +237,6 @@ export default function RocheProject() {
             </CardContent>
           </Card>
 
-          {/* Why This Matters */}
-          <Card className="bg-slate-50 border-terminal-green">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-bold text-terminal-green mb-4">$ cat why_this_matters.md</h2>
-              <div className="space-y-4">
-                <div className="border-l-2 border-terminal-green pl-4 space-y-2">
-                  <h3 className="text-lg font-semibold text-terminal-white">For data platform companies (Databricks, Snowflake, Fivetran, dbt)</h3>
-                  <p className="text-slate-600 text-sm">
-                    I built every layer of a data platform from scratch: schema design, ETL with drift
-                    detection, data quality monitoring, and a natural language interface. This is the same
-                    problem space — just at enterprise scale for a real production database, not a toy dataset.
-                  </p>
-                </div>
-                <div className="border-l-2 border-terminal-green pl-4 space-y-2">
-                  <h3 className="text-lg font-semibold text-terminal-white">For AI labs (Anthropic, OpenAI, Scale AI)</h3>
-                  <p className="text-slate-600 text-sm">
-                    The AI agent + eval framework is exactly the pattern used in production LLM deployment:
-                    domain-grounded prompting, schema-aware SQL generation, and automated evaluation against
-                    ground truth. Built on a live system with real scientists as users.
-                  </p>
-                </div>
-                <div className="border-l-2 border-terminal-green pl-4 space-y-2">
-                  <h3 className="text-lg font-semibold text-terminal-white">For full-stack / SWE roles (FAANG, Notion, Roblox)</h3>
-                  <p className="text-slate-600 text-sm">
-                    Shipped a production full-stack application: REST API, React frontend, Docker deployment,
-                    CI/CD. Strong PostgreSQL and Django fundamentals, with React on top. Not a side project —
-                    used by the CSI Assay Team at Roche.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
 
           {/* Tech Stack */}
           <Card className="bg-slate-50 border-terminal-green">
