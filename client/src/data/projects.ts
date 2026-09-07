@@ -52,7 +52,7 @@ export const projects: Project[] = [
     technologies: ["Manifest V3", "Content Scripts", "React", "Local Storage"],
     category: "software",
     liveUrl: "#",
-    githubUrl: "https://github.com/heenakhan122"
+    githubUrl: "https://github.com/heenakhan122/modest-filter"
   },
   {
     title: "Neurotrack Data Analysis",
