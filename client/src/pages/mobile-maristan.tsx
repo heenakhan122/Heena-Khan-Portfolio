@@ -28,23 +28,6 @@ export default function MobileMaristanProject() {
               Progressive Web App — A mobile-first mental wellness companion grounded in Islamic psychology and traditional healing wisdom
             </p>
             
-            {/* Project Links */}
-            <div className="flex gap-4 mb-8">
-              <button 
-                className="px-6 py-3 bg-terminal-green text-terminal-bg font-semibold rounded hover:bg-terminal-green/90 transition-colors flex items-center gap-2"
-                data-testid="button-view-demo"
-              >
-                <ExternalLink size={18} />
-                View Demo
-              </button>
-              <button 
-                className="px-6 py-3 border border-terminal-green text-terminal-green font-semibold rounded hover:bg-terminal-green/10 transition-colors flex items-center gap-2"
-                data-testid="button-view-code"
-              >
-                <Github size={18} />
-                View Code
-              </button>
-            </div>
           </div>
 
           {/* Mobile App Preview */}
@@ -176,7 +159,8 @@ export default function MobileMaristanProject() {
                   <div className="w-56 h-80 bg-gradient-to-b from-gray-800 to-black rounded-[1.5rem] p-2 shadow-lg border border-gray-700">
                     <div className="w-full h-full bg-white rounded-[1.25rem] overflow-hidden relative">
                       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-3 bg-black rounded-b-lg z-10"></div>
-                      <img 
+                      <img
+                loading="lazy" 
                         src={`${import.meta.env.BASE_URL}maristan-quick-actions.png`} 
                         alt="Quick spiritual practices menu"
                         className="w-full h-full object-contain bg-gray-50"
@@ -221,7 +205,8 @@ export default function MobileMaristanProject() {
                   <div className="w-72 h-[28rem] bg-gradient-to-b from-gray-800 to-black rounded-[2rem] p-2.5 shadow-xl border border-gray-700">
                     <div className="w-full h-full bg-white rounded-[1.5rem] overflow-hidden relative">
                       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-4 bg-black rounded-b-xl z-10"></div>
-                      <img 
+                      <img
+                loading="lazy" 
                         src={`${import.meta.env.BASE_URL}maristan-tiip-framework.png`} 
                         alt="TIIP Framework stages with detailed descriptions"
                         className="w-full h-full object-contain bg-gray-50"
@@ -294,7 +279,8 @@ export default function MobileMaristanProject() {
                   <div className="w-72 h-[28rem] bg-gradient-to-b from-gray-800 to-black rounded-[2rem] p-2.5 shadow-xl border border-gray-700">
                     <div className="w-full h-full bg-white rounded-[1.5rem] overflow-hidden relative">
                       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-4 bg-black rounded-b-xl z-10"></div>
-                      <img 
+                      <img
+                loading="lazy" 
                         src={`${import.meta.env.BASE_URL}maristan-dashboard.png`} 
                         alt="Personal progress dashboard"
                         className="w-full h-full object-contain bg-gray-50 p-1"
@@ -322,7 +308,8 @@ export default function MobileMaristanProject() {
                   <div className="w-72 h-[28rem] bg-gradient-to-b from-gray-800 to-black rounded-[2rem] p-2.5 shadow-xl border border-gray-700">
                     <div className="w-full h-full bg-white rounded-[1.5rem] overflow-hidden relative">
                       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-4 bg-black rounded-b-xl z-10"></div>
-                      <img 
+                      <img
+                loading="lazy" 
                         src={`${import.meta.env.BASE_URL}maristan-mood-tracking.png`} 
                         alt="Cultural mood tracking interface"
                         className="w-full h-full object-contain bg-gray-50"
@@ -353,7 +340,8 @@ export default function MobileMaristanProject() {
                   <div className="w-72 h-[28rem] bg-gradient-to-b from-gray-800 to-black rounded-[2rem] p-2.5 shadow-xl border border-gray-700">
                     <div className="w-full h-full bg-white rounded-[1.5rem] overflow-hidden relative">
                       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-4 bg-black rounded-b-xl z-10"></div>
-                      <img 
+                      <img
+                loading="lazy" 
                         src={`${import.meta.env.BASE_URL}maristan-guidance.png`} 
                         alt="Islamic guidance with Quranic verses"
                         className="w-full h-full object-contain bg-gray-50"

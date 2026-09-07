@@ -30,20 +30,15 @@ export default function KhaistaBoutiqueProject() {
             
             {/* Project Links */}
             <div className="flex gap-4 mb-8">
-              <button 
-                className="px-6 py-3 bg-terminal-green text-terminal-bg font-semibold rounded hover:bg-terminal-green/90 transition-colors flex items-center gap-2"
-                data-testid="button-view-demo"
-              >
-                <ExternalLink size={18} />
-                View Demo
-              </button>
-              <button 
+              <a
+                href="https://github.com/heenakhan122/Khaista-Boutique"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-3 border border-terminal-green text-terminal-green font-semibold rounded hover:bg-terminal-green/10 transition-colors flex items-center gap-2"
-                data-testid="button-view-code"
               >
                 <Github size={18} />
                 View Code
-              </button>
+              </a>
             </div>
           </div>
 
@@ -97,7 +92,8 @@ export default function KhaistaBoutiqueProject() {
                   </div>
                   {/* Website Content */}
                   <div className="bg-white rounded overflow-hidden shadow-inner">
-                    <img 
+                    <img
+                loading="lazy" 
                       src={`${import.meta.env.BASE_URL}khaista-homepage.png`} 
                       alt="Khaista Boutique homepage showcasing Afghan artisan products"
                       className="w-full h-auto object-contain"
@@ -166,7 +162,8 @@ export default function KhaistaBoutiqueProject() {
                   </div>
                   {/* Website Content */}
                   <div className="bg-white rounded overflow-hidden shadow-inner">
-                    <img 
+                    <img
+                loading="lazy" 
                       src={`${import.meta.env.BASE_URL}khaista-catalog.png`} 
                       alt="Product catalog with filtering and category navigation"
                       className="w-full h-auto object-contain"
@@ -245,7 +242,8 @@ export default function KhaistaBoutiqueProject() {
                   </div>
                   {/* Website Content */}
                   <div className="bg-white rounded overflow-hidden shadow-inner">
-                    <img 
+                    <img
+                loading="lazy" 
                       src={`${import.meta.env.BASE_URL}khaista-cart.png`} 
                       alt="Shopping cart interface with order summary and checkout"
                       className="w-full h-auto object-contain"
@@ -294,7 +292,8 @@ export default function KhaistaBoutiqueProject() {
                   </div>
                   {/* Website Content */}
                   <div className="bg-white rounded overflow-hidden shadow-inner">
-                    <img 
+                    <img
+                loading="lazy" 
                       src={`${import.meta.env.BASE_URL}khaista-product-detail.png`} 
                       alt="Individual product page with detailed imagery and cultural context"
                       className="w-full h-auto object-contain"
@@ -437,7 +436,8 @@ export default function KhaistaBoutiqueProject() {
                   </div>
                   {/* Website Content */}
                   <div className="bg-white rounded overflow-hidden shadow-inner">
-                    <img 
+                    <img
+                loading="lazy" 
                       src={`${import.meta.env.BASE_URL}khaista-order-confirmation.png`} 
                       alt="Order confirmation page showing social impact metrics"
                       className="w-full h-auto object-contain"

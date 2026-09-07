@@ -30,20 +30,15 @@ export default function ModestFilterProject() {
             
             {/* Project Links */}
             <div className="flex gap-4 mb-8">
-              <button 
-                className="px-6 py-3 bg-terminal-green text-terminal-bg font-semibold rounded hover:bg-terminal-green/90 transition-colors flex items-center gap-2"
-                data-testid="button-view-demo"
-              >
-                <ExternalLink size={18} />
-                View Demo
-              </button>
-              <button 
+              <a
+                href="https://github.com/heenakhan122/modest-filter"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-3 border border-terminal-green text-terminal-green font-semibold rounded hover:bg-terminal-green/10 transition-colors flex items-center gap-2"
-                data-testid="button-view-code"
               >
                 <Github size={18} />
                 View Code
-              </button>
+              </a>
             </div>
           </div>
 
@@ -105,7 +100,8 @@ export default function ModestFilterProject() {
               </div>
               <div className="flex justify-center">
                 <div className="max-w-sm">
-                  <img 
+                  <img
+                loading="lazy" 
                     src={`${import.meta.env.BASE_URL}modestfilter-popup.png`} 
                     alt="ModestFilter Chrome extension popup interface showing filtering options including sleeves, dress length, neckline, and AI settings"
                     className="w-full h-auto rounded border border-terminal-green/50 shadow-lg"
@@ -126,7 +122,8 @@ export default function ModestFilterProject() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-4">
                 <div className="rounded border border-terminal-green/50 overflow-hidden">
-                  <img 
+                  <img
+                loading="lazy" 
                     src={`${import.meta.env.BASE_URL}modestfilter-before.png`} 
                     alt="Urban Outfitters product grid before applying ModestFilter - showing mix of modest and immodest clothing items"
                     className="w-full h-auto"
@@ -140,7 +137,8 @@ export default function ModestFilterProject() {
               </div>
               <div className="space-y-4">
                 <div className="rounded border border-terminal-green overflow-hidden">
-                  <img 
+                  <img
+                loading="lazy" 
                     src={`${import.meta.env.BASE_URL}modestfilter-after.png`} 
                     alt="Urban Outfitters product grid after applying ModestFilter - showing only modest clothing options"
                     className="w-full h-auto"
@@ -173,7 +171,8 @@ export default function ModestFilterProject() {
               {/* H&M Example 1 */}
               <div className="space-y-4">
                 <div className="relative rounded border border-terminal-green/50 overflow-hidden">
-                  <img 
+                  <img
+                loading="lazy" 
                     src={`${import.meta.env.BASE_URL}modestfilter-hm-1.png`} 
                     alt="ModestFilter active on H&M website showing filtered modest clothing options"
                     className="w-full h-auto"
@@ -195,7 +194,8 @@ export default function ModestFilterProject() {
               {/* H&M Example 2 */}
               <div className="space-y-4">
                 <div className="relative rounded border border-terminal-green/50 overflow-hidden">
-                  <img 
+                  <img
+                loading="lazy" 
                     src={`${import.meta.env.BASE_URL}modestfilter-hm-2.png`} 
                     alt="ModestFilter active on H&M website with different product layout"
                     className="w-full h-auto"
@@ -217,7 +217,8 @@ export default function ModestFilterProject() {
               {/* SHEIN Example */}
               <div className="space-y-4">
                 <div className="relative rounded border border-terminal-green/50 overflow-hidden">
-                  <img 
+                  <img
+                loading="lazy" 
                     src={`${import.meta.env.BASE_URL}modestfilter-shein.png`} 
                     alt="ModestFilter active on SHEIN website filtering clothing products"
                     className="w-full h-auto"
