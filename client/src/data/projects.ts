@@ -16,8 +16,8 @@ export const projects: Project[] = [
   technologies: ["Computer Vision", "Edge AI", "React Native", "Geospatial ML", "AR"],
   category: "software",
   liveUrl: "/Heena-Khan-Portfolio/projects/amani",
-  githubUrl: "https://github.com/heenakhan122"
-},  
+  githubUrl: "https://github.com/heenakhan122/amani"
+},
 {
     title: "Mobile Maristan (PWA)",
     description: "TIIP-aligned wellness app with guided journaling + dhikr/breath practices, offline-first storage, i18n/RTL support, and explainable state→practice recommendations (sakina/waswasa/huzn/ghadab).",
@@ -34,7 +34,7 @@ export const projects: Project[] = [
     technologies: ["React", "React Router", "Tailwind", "Stripe", "Vite", "Netlify"],
     category: "software",
     liveUrl: "#",
-    githubUrl: "https://github.com/heenakhan122"
+    githubUrl: "https://github.com/heenakhan122/Khaista-Boutique"
   },
   {
     title: "Probabilistic Deployment of Healthcare Trainers (CS109)",
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     technologies: ["Python", "R", "Statistical Analysis", "A/B Testing"],
     category: "datascience",
     liveUrl: "#",
-    githubUrl: "https://github.com/heenakhan122"
+    githubUrl: "https://github.com/heenakhan122/alz-backend-data-pipeline"
   },
   {
     title: "Interactive Web Applications",
