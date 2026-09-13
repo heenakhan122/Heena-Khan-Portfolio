@@ -207,12 +207,11 @@ export default function RocheProject() {
               <div>
                 <h3 className="text-terminal-white font-semibold mb-2">Infrastructure & Deployment</h3>
                 <ul className="space-y-1 text-terminal-gray text-sm font-mono">
-                  <li><span className="text-terminal-green">host</span>  assay-bioinformatics-db.roche.com</li>
-                  <li><span className="text-terminal-green">db</span>    test_db / hit_db (PostgreSQL 15)</li>
-                  <li><span className="text-terminal-green">access</span> SSH tunnel, port 22, Roche SSO</li>
-                  <li><span className="text-terminal-green">role</span>  HiT-user (shared, full access)</li>
-                  <li><span className="text-terminal-green">deploy</span> Docker + CI/CD schema validation</li>
-                  <li><span className="text-terminal-green">orm</span>   managed=False (no migrations on prod)</li>
+                  <li><span className="text-terminal-green">db</span>    Enterprise PostgreSQL on internal HPC cluster</li>
+                  <li><span className="text-terminal-green">access</span> SSH-tunneled, SSO-authenticated</li>
+                  <li><span className="text-terminal-green">deploy</span> Docker + CI/CD schema validation pipeline</li>
+                  <li><span className="text-terminal-green">orm</span>   Django ORM, managed=False (no migrations on prod)</li>
+                  <li><span className="text-terminal-green">audit</span> etl_run_log — full lineage per ETL run</li>
                 </ul>
               </div>
               <div>
