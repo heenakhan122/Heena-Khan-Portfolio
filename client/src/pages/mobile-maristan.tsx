@@ -54,10 +54,9 @@ export default function MobileMaristanProject() {
             </div>
           </div>
 
-          {/* Project Content Grid */}
-          <div className="grid md:grid-cols-2 gap-12">
-            
-            {/* Project Description */}
+          {/* Project Content */}
+          <div className="space-y-10">
+
             <div className="space-y-6">
               <h2 className="text-2xl font-semibold text-terminal-green">Overview</h2>
               <div className="space-y-4 text-terminal-gray text-lg leading-relaxed">

@@ -250,10 +250,9 @@ export default function ModestFilterProject() {
             </div>
           </div>
 
-          {/* Technical Content Grid */}
-          <div className="grid md:grid-cols-2 gap-12">
-            
-            {/* Left Column */}
+          {/* Technical Content */}
+          <div className="space-y-10">
+
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-terminal-green">The Technical Challenge</h3>
               <div className="space-y-4 text-terminal-gray leading-relaxed">
@@ -304,7 +303,6 @@ export default function ModestFilterProject() {
               </div>
             </div>
 
-            {/* Right Column */}
             <div className="space-y-6">
               <h2 className="text-2xl font-semibold text-terminal-green">Technical Implementation Highlights</h2>
               

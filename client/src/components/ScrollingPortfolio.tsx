@@ -346,13 +346,13 @@ function AboutSection({ scrollToSection }: { scrollToSection?: (index: number) =
       <div className="grid md:grid-cols-5 gap-12 items-start">
         {/* Left: text */}
         <div className="md:col-span-3 space-y-5">
-          <p className="text-gray-600 text-lg leading-relaxed">
+          <p className="text-gray-600 text-base leading-relaxed">
             I'm a CS student at Stanford studying AI, with a Biology minor and a deep interest
             in data reliability. I care about building systems that actually hold up — the kind
             where silent failures get caught, pipelines don't quietly corrupt downstream
             outputs, and the code ships to something real.
           </p>
-          <p className="text-gray-500 text-base leading-relaxed">
+          <p className="text-gray-600 text-base leading-relaxed">
             At Roche I built drift detection that catches schema changes before they break AI
             responses, and an NL-to-SQL agent so scientists can query live assay data in plain
             English. At Neurotrack I built pipelines for cognitive assessment tools used in
