@@ -623,7 +623,7 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
       title: 'PCR Assay Data Platform — Roche',
       description: 'Enterprise PostgreSQL database, ETL drift detection pipeline, domain-specific AI agent for NL-to-SQL querying, and full-stack Django + React application for Roche\'s diagnostic assay portfolio.',
       tech: ['PostgreSQL', 'Python', 'Django', 'React', 'AI Agent', 'ETL', 'Docker', 'NL-to-SQL'],
-      image: `${import.meta.env.BASE_URL}roche-preview.svg`,
+      image: "/Heena-Khan-Portfolio/roche-preview.svg",
       badge: null,
       route: '/projects/roche'
     },
@@ -631,7 +631,7 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
       title: 'AMANI',
       description: 'AI-enabled health mapping platform for low-resource settings. Offline-first reporting, edge AI computer vision, and human-in-loop verification.',
       tech: ['Computer Vision', 'Edge AI', 'React Native', 'TensorFlow Lite', 'PostgreSQL'],
-      image: `${import.meta.env.BASE_URL}amani-preview.svg`,
+      image: "/Heena-Khan-Portfolio/amani-preview.svg",
       badge: 'Stanford Healthcare Design Challenge Finalist',
       route: '/projects/amani'
     },

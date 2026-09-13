@@ -12,7 +12,7 @@ export const projects: Project[] = [
 {
   title: "AMANI",
   description: "AI-enabled WASH hazard mapping platform for refugee and low-resource settings. Phone-based AR system with offline-first reporting, edge AI, and human-in-loop verification. Stanford Healthcare Design Challenge Finalist.",
-  image: `${import.meta.env.BASE_URL}amani-preview.png`,
+  image: "/Heena-Khan-Portfolio/amani-preview.svg",
   technologies: ["Computer Vision", "Edge AI", "React Native", "Geospatial ML", "AR"],
   category: "software",
   liveUrl: "/Heena-Khan-Portfolio/projects/amani",
@@ -30,7 +30,7 @@ export const projects: Project[] = [
   {
     title: "Khaista Boutique",
     description: "Modern e-commerce frontend with product gallery, cart flow, and image optimization for Afghan handmade goods. Accessibility & performance tuned for global audiences.",
-    image: `${import.meta.env.BASE_URL}khaista-boutique-logo.jpg`,
+    image: "/Heena-Khan-Portfolio/khaista-boutique-logo.jpg",
     technologies: ["React", "React Router", "Tailwind", "Stripe", "Vite", "Netlify"],
     category: "software",
     liveUrl: "https://heenakhan122.github.io/Khaista-Boutique/",
