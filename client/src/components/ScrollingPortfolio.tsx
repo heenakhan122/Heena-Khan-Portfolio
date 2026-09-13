@@ -227,7 +227,7 @@ function LandingSection({ scrollToSection }: { scrollToSection?: (index: number)
     "software engineer",
     "data infrastructure engineer",
     "AI systems builder",
-    "part-time barista ☕",
+    "Stanford CS · AI track",
   ];
 
   useEffect(() => {
