@@ -60,23 +60,56 @@ export default function RocheProject() {
           <div className="mb-10 pb-10 border-b border-terminal-green/20">
             <h2 className="text-2xl font-bold text-terminal-green mb-6">Database Design</h2>
             <p className="text-terminal-gray mb-6">Designed a PostgreSQL schema from scratch to model PCR and NGS assay data across Roche's full diagnostic portfolio.</p>
+
+            {/* ERD */}
+            <div className="bg-terminal-green/5 border border-terminal-green/20 rounded p-5 mb-6 font-mono text-sm overflow-x-auto">
+              <p className="text-terminal-green font-semibold mb-3 font-sans">Entity-Relationship Model</p>
+              <pre className="text-terminal-gray leading-relaxed">{`
+  ┌─────────────┐        ┌──────────────────┐       ┌────────────────────┐
+  │   result    │◄───────│   pcr_result     │◄──────│    hit_result      │
+  │─────────────│        │──────────────────│       │────────────────────│
+  │ id (PK)     │        │ result_id (FK)   │       │ pcr_result_id (FK) │
+  │ project_id  │        │ sample_name      │       │ barcode            │
+  │ created_at  │        │ channel_name     │       │ cluster_count      │
+  └─────────────┘        │ qc_flag (idx)   │       └────────────────────┘
+                          └──────────────────┘
+         ▲
+         │                ┌─────────────────────┐      ┌─────────────────┐
+         │                │  hit_pcr_template   │      │  template_pool  │
+         │                │─────────────────────│      │─────────────────│
+         │                │ primer_id (FK)       │◄─────│ pool_id (PK)    │
+         │                │ template_id (FK,NULL)│      │ pool_type       │
+         │                │ sequence            │      └─────────────────┘
+         │                └─────────────────────┘
+         │
+  ┌──────┴──────┐         ┌──────────────────┐
+  │   project   │         │   etl_run_log    │
+  │─────────────│         │──────────────────│
+  │ id (PK)     │         │ script_name      │
+  │ assay_name  │         │ source_file      │
+  │ target      │         │ rows_inserted    │
+  └─────────────┘         │ error_state      │
+                          │ run_at           │
+                          └──────────────────┘`}</pre>
+            </div>
+
             <div className="grid md:grid-cols-2 gap-6">
               {[
                 {
                   title: "Class Table Inheritance",
-                  desc: "result → pcr_result → hit_result avoids a single wide table while keeping queries efficient across result types.",
+                  desc: "result → pcr_result → hit_result avoids a single wide table while keeping queries efficient across result types. Each level adds columns specific to that assay type.",
                 },
                 {
                   title: "Design-Time vs. Run-Time",
-                  desc: "Separated template design tables (template_pool, hit_pcr_template) from run-time instances (template), so planned vs. executed experiments don't bleed into each other.",
+                  desc: "Separated template design tables (template_pool, hit_pcr_template) from run-time instances (template). template_id is nullable on hit_pcr_template — design-time templates have no run yet.",
                 },
                 {
                   title: "Targeted Indexing",
-                  desc: "Composite indexes and a partial index on pcr_result(qc_flag) WHERE qc_flag = true — covering the most frequent QC filter queries without index bloat.",
+                  desc: "Composite indexes on frequent join paths + partial index on pcr_result(qc_flag) WHERE qc_flag = true — covers QC filter queries without index bloat on the full table.",
                 },
                 {
                   title: "ETL Audit Trail",
-                  desc: "Every ETL run logged to etl_run_log with source file, row counts, timestamps, and error state — full lineage for debugging and compliance.",
+                  desc: "Every ETL run logged to etl_run_log with source file, row counts, timestamps, and error state. Full lineage for debugging and compliance — critical for a regulated environment.",
                 },
               ].map(({ title, desc }) => (
                 <div key={title} className="border-l-2 border-terminal-green pl-4">
@@ -121,20 +154,29 @@ export default function RocheProject() {
           <div className="mb-10 pb-10 border-b border-terminal-green/20">
             <h2 className="text-2xl font-bold text-terminal-green mb-6">AI Agent (NL-to-SQL)</h2>
             <p className="text-terminal-gray mb-6">Domain-specific AI agent that lets scientists query assay data in natural language. Translates questions into SQL over the live PostgreSQL database — no SQL knowledge needed.</p>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div className="border-l-2 border-terminal-green pl-4">
                 <h3 className="text-terminal-white font-semibold mb-2">Architecture</h3>
                 <ul className="space-y-1 text-terminal-gray text-sm">
-                  <li>• NL-to-SQL grounded in actual DB schema (25+ tables, FKs, CTEs)</li>
-                  <li>• Domain-specific prompt context — assay terminology, result hierarchies, QC semantics</li>
-                  <li>• Schema drift integration — responses validated against current schema state</li>
-                  <li>• Django API endpoint + React chat UI</li>
+                  <li>• Schema-grounded prompting — full table definitions, FK relationships, and CTE patterns injected into context</li>
+                  <li>• Domain-specific prompt context — assay terminology, result hierarchies, QC flag semantics</li>
+                  <li>• Drift integration — agent context refreshed when schema state changes</li>
+                  <li>• Django Ninja API endpoint → React chat UI with query history</li>
                 </ul>
               </div>
               <div className="border-l-2 border-terminal-green pl-4">
-                <h3 className="text-terminal-white font-semibold mb-2">Eval framework</h3>
-                <p className="text-terminal-gray text-sm">Ground-truth Q&A evaluation set with automated scoring pipeline to measure agent accuracy — same pattern used in production LLM evaluation at AI labs.</p>
+                <h3 className="text-terminal-white font-semibold mb-2">Evaluation Framework</h3>
+                <ul className="space-y-1 text-terminal-gray text-sm">
+                  <li>• Ground-truth Q&A benchmark: curated scientist questions paired with verified SQL and expected result sets</li>
+                  <li>• Two-layer scoring: SQL syntax validity + execution correctness (result set matches ground truth)</li>
+                  <li>• Automated eval pipeline runs on each agent change — catches regressions before deployment</li>
+                  <li>• Same eval pattern used in production LLM evaluation at AI labs</li>
+                </ul>
               </div>
+            </div>
+            <div className="bg-terminal-green/5 border border-terminal-green/20 p-4 rounded text-sm text-terminal-gray">
+              <span className="text-terminal-white font-semibold">Chat UI → Agent → PostgreSQL flow: </span>
+              React chat UI → <span className="text-terminal-green font-mono">POST /api/agent/query</span> → NL-to-SQL translation → query execution on live DB → structured result returned to UI
             </div>
           </div>
 
@@ -163,12 +205,14 @@ export default function RocheProject() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-terminal-white font-semibold mb-2">Infrastructure</h3>
-                <ul className="space-y-1 text-terminal-gray text-sm">
-                  <li>• Docker + Docker Compose</li>
-                  <li>• CI/CD automated validation</li>
-                  <li>• SSH-tunneled enterprise PostgreSQL</li>
-                  <li>• Django ORM with managed=False (no migrations on prod DB)</li>
+                <h3 className="text-terminal-white font-semibold mb-2">Infrastructure & Deployment</h3>
+                <ul className="space-y-1 text-terminal-gray text-sm font-mono">
+                  <li><span className="text-terminal-green">host</span>  assay-bioinformatics-db.roche.com</li>
+                  <li><span className="text-terminal-green">db</span>    test_db / hit_db (PostgreSQL 15)</li>
+                  <li><span className="text-terminal-green">access</span> SSH tunnel, port 22, Roche SSO</li>
+                  <li><span className="text-terminal-green">role</span>  HiT-user (shared, full access)</li>
+                  <li><span className="text-terminal-green">deploy</span> Docker + CI/CD schema validation</li>
+                  <li><span className="text-terminal-green">orm</span>   managed=False (no migrations on prod)</li>
                 </ul>
               </div>
               <div>
