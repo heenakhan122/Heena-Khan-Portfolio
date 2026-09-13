@@ -256,7 +256,7 @@ function LandingSection({ scrollToSection }: { scrollToSection?: (index: number)
         {/* Status pill */}
         <div className="inline-flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-sm border border-rose-100 mb-6">
           <div className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
-          <span className="text-xs font-medium text-gray-500">Currently @ Roche/Genentech · Open to 2027 roles</span>
+          <span className="text-xs font-medium text-gray-500">Stanford University · Open to Winter/Spring 2027 internships</span>
         </div>
 
         {/* Heading */}
@@ -623,7 +623,7 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
       title: 'PCR Assay Data Platform — Roche',
       description: 'Enterprise PostgreSQL database, ETL drift detection pipeline, domain-specific AI agent for NL-to-SQL querying, and full-stack Django + React application for Roche\'s diagnostic assay portfolio.',
       tech: ['PostgreSQL', 'Python', 'Django', 'React', 'AI Agent', 'ETL', 'Docker', 'NL-to-SQL'],
-      image: "/Heena-Khan-Portfolio/roche-preview.svg",
+      image: null,
       badge: null,
       route: '/projects/roche'
     },
@@ -631,7 +631,7 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
       title: 'AMANI',
       description: 'AI-enabled health mapping platform for low-resource settings. Offline-first reporting, edge AI computer vision, and human-in-loop verification.',
       tech: ['Computer Vision', 'Edge AI', 'React Native', 'TensorFlow Lite', 'PostgreSQL'],
-      image: "/Heena-Khan-Portfolio/amani-preview.svg",
+      image: null,
       badge: 'Stanford Healthcare Design Challenge Finalist',
       route: '/projects/amani'
     },
@@ -726,9 +726,34 @@ function ProjectsSection({ scrollToSection }: { scrollToSection?: (index: number
                     <div className="absolute inset-0 bg-gradient-to-r from-terminal-green/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                 ) : (
-                  <div className="w-full h-full bg-terminal-green/10 flex items-center justify-center relative">
-                    <span className="text-terminal-green text-sm">Project Image</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-terminal-green/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="w-full h-full relative overflow-hidden flex flex-col items-center justify-center"
+                    style={{ background: currentProject.title.includes('Roche') ? '#0a1a3a' : '#0a1628' }}>
+                    {currentProject.title.includes('Roche') ? (
+                      <>
+                        <div className="mb-3" style={{
+                          width: 64, height: 64, background: '#0066cc', clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+                          display: 'flex', alignItems: 'center', justifyContent: 'center'
+                        }}>
+                          <span style={{ color: 'white', fontWeight: 900, fontSize: 28, fontFamily: 'Arial' }}>R</span>
+                        </div>
+                        <p style={{ color: '#e0eaff', fontWeight: 700, letterSpacing: 4, fontSize: 16 }}>ROCHE</p>
+                        <p style={{ color: '#7fa8d8', fontSize: 10, letterSpacing: 2, marginTop: 2 }}>/ GENENTECH</p>
+                        <div style={{ width: 120, height: 1, background: '#0066cc', opacity: 0.4, margin: '10px 0' }}/>
+                        <p style={{ color: '#f0f8ff', fontSize: 11, fontWeight: 600 }}>PCR Assay Data Platform</p>
+                      </>
+                    ) : (
+                      <>
+                        <div style={{ marginBottom: 12 }}>
+                          <svg width="60" height="72" viewBox="0 0 60 72">
+                            <path d="M30 0 C30 0 8 27 8 40 C8 53 18 62 30 62 C42 62 52 53 52 40 C52 27 30 0 30 0 Z" fill="#0d9488" opacity="0.9"/>
+                            <circle cx="30" cy="42" r="10" fill="#0a1628" opacity="0.7"/>
+                          </svg>
+                        </div>
+                        <p style={{ color: '#f0fdf4', fontWeight: 700, letterSpacing: 6, fontSize: 20 }}>AMANI</p>
+                        <p style={{ color: '#5eead4', fontSize: 9, letterSpacing: 1, marginTop: 4, textAlign: 'center', padding: '0 16px' }}>AI-POWERED WASH HAZARD MAPPING</p>
+                      </>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-r from-terminal-green/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
                   </div>
                 )}
                 
