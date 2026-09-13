@@ -31,6 +31,15 @@ export default function KhaistaBoutiqueProject() {
             {/* Project Links */}
             <div className="flex gap-4 mb-8">
               <a
+                href="https://heenakhan122.github.io/Khaista-Boutique/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 bg-terminal-green text-terminal-bg font-semibold rounded hover:bg-terminal-green/90 transition-colors flex items-center gap-2"
+              >
+                <ExternalLink size={18} />
+                Live Demo
+              </a>
+              <a
                 href="https://github.com/heenakhan122/Khaista-Boutique"
                 target="_blank"
                 rel="noopener noreferrer"

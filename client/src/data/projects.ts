@@ -33,7 +33,7 @@ export const projects: Project[] = [
     image: `${import.meta.env.BASE_URL}khaista-boutique-logo.jpg`,
     technologies: ["React", "React Router", "Tailwind", "Stripe", "Vite", "Netlify"],
     category: "software",
-    liveUrl: "#",
+    liveUrl: "https://heenakhan122.github.io/Khaista-Boutique/",
     githubUrl: "https://github.com/heenakhan122/Khaista-Boutique"
   },
   {
