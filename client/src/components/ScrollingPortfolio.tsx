@@ -525,10 +525,10 @@ function WorkSection({ scrollToSection }: { scrollToSection?: (index: number) =>
       tags: ['PostgreSQL', 'Python', 'Django', 'React', 'AI Agent', 'ETL', 'Docker', 'CI/CD']
     },
     {
-      year: '2024',
+      year: '2023',
       title: 'Haas Center for Public Service Fellow',
       company: 'Afghanistan Women\'s Council',
-      period: '2024',
+      period: 'June 2023 – September 2023',
       location: 'Stanford, CA',
       description: 'Built full-stack e-commerce platform enabling 100+ Afghan women artisans to reach global buyers, as part of the Stanford Haas Center for Public Service fellowship.',
       details: [
@@ -538,10 +538,10 @@ function WorkSection({ scrollToSection }: { scrollToSection?: (index: number) =>
       tags: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Stripe', 'Docker', 'GitHub Actions', 'Public Service']
     },
     {
-      year: '2023',
+      year: '2024',
       title: 'Stanford Tech Fellowship',
       company: 'Pull for Progress',
-      period: 'June 2023 – September 2024',
+      period: '2024',
       location: 'Stanford, CA',
       description: 'Engineered geospatial machine learning models in Python using multidimensional health metrics to predict regional risk profiles across 50,000+ healthcare data points.',
       details: [
