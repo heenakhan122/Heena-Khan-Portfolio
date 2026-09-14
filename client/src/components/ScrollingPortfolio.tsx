@@ -525,17 +525,17 @@ function WorkSection({ scrollToSection }: { scrollToSection?: (index: number) =>
       tags: ['PostgreSQL', 'Python', 'Django', 'React', 'AI Agent', 'ETL', 'Docker', 'CI/CD']
     },
     {
-      year: '2025',
-      title: 'AI Research Engineering Intern',
-      company: 'Neurotrack Technologies',
-      period: 'June 2025 – September 2025',
-      location: 'Palo Alto, CA',
-      description: 'Engineered high-throughput data curation and feature pipelines in Python/SQL, ingesting and normalizing 10,000+ multimodal assessment records across 9 heterogeneous input schemas.',
+      year: '2024',
+      title: 'Haas Center for Public Service Fellow',
+      company: 'Afghanistan Women\'s Council',
+      period: '2024',
+      location: 'Stanford, CA',
+      description: 'Built full-stack e-commerce platform enabling 100+ Afghan women artisans to reach global buyers, as part of the Stanford Haas Center for Public Service fellowship.',
       details: [
-        'Designed automated validation and noise-filtering algorithms to detect schema drift and artifact corruption, increasing input dataset reliability for downstream training pipelines.',
-        'Trained and evaluated linear regression and parametric curve-fitting models in Python to map score distribution trajectories, using statistical evaluation metrics to prune 6 redundant assessment variants.'
+        'Designed and shipped React + TypeScript frontend, Node.js/Express REST API, and PostgreSQL backend end-to-end — full product ownership from architecture through deployment.',
+        'Integrated Stripe payments, Zod server-side validation, and automated CI/CD via GitHub Actions; platform connected Afghan women entrepreneurs to global customers during restricted local commerce.'
       ],
-      tags: ['Python', 'SQL', 'Data Pipelines', 'ML', 'Schema Drift Detection', 'Statistical Modeling']
+      tags: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Stripe', 'Docker', 'GitHub Actions', 'Public Service']
     },
     {
       year: '2023',
